@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+   <meta charset="UTF-8"> 
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+   <meta name="description" content="Her Kitap'ta takip ettiğiniz okurlardan, kitaplardan ve yazarlardan son paylaşımların yer aldığı sayfadır."> 
+   <title>HerKitapx</title>
+   
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"> 
+   <link rel="stylesheet" href="../css/style.css">
+   <link rel="stylesheet" href="../css/index.css">
+   <link rel="stylesheet" href="../css/footer.css"> 
+   <link rel="stylesheet" href="../css/header.css"> 
+   <link rel="stylesheet" href="../css/leftMenu.css"> 
+   <link rel="stylesheet" href="../css/rightMenu.css"> 
+   <script src="../js/index.js"></script>
+
+</head>
+<body>
+   <header>
+      <img src="../images/logo.jpg" class="logo">
+      HER KİTAP
+   </header>
+
+   <script>
+      // Geri dön butonuna tıklandığında önceki sayfaya dön
+      function goBack() {
+      window.history.back();
+      }
+  </script>
+
+<div class="container"> 
+
+   <div class="left-container">
+      <div class="leftMenu"> 
+         <div class="back-button" onclick="goBack()"> 
+            <span>&larr;</span> 
+            <span>Geri Dön</span> 
+         </div>
+         <div class="search-container"> 
+            <input type="text" placeholder="Ara..."> 
+            <button type="button">Ara</button> 
+         </div>
+         <ul>
+            <li><a href="index.html"><i class="fas fa-book"></i> Her Kitap</a></li>
+            <li><a href="akisx.html"><i class="fas fa-stream"></i> Akış</a></li> 
+            <li><a href="kesfetx.html"><i class="fas fa-compass"></i> Keşfet</a></li> 
+            <li><a href="neokusamx.html"><i class="fas fa-question-circle"></i> Ne Okusam?</a></li> 
+            <li><a href="yazarlarx.html"><i class="fas fa-user"></i> Yazarlar</a></li> 
+            <li><a href="yayinevlerix.html"><i class="fas fa-book"></i> Yayın Evleri</a></li> 
+            <li><a href="kitaplikx.html"><i class="fas fa-book-open"></i> Kitaplık</a></li> 
+            <li><a href="girisyapx.html"><i class="fas fa-sign-in-alt"></i> Giriş Yap</a></li> 
+            <li><a href="kayitx.html"><i class="fas fa-user-plus"></i> Kaydol</a></li> 
+            <li><a href="hakkimizdax.html"><i class="fas fa-info-circle"></i> Hakkımızda</a></li> 
+            <li><a href="iletisimx.html"><i class="fas fa-envelope"></i> İletişim</a></li> 
+            </ul>
+      </div>
+  </div>
+  
+  <div class="slider-container">
+      <div class="slider">        
+         <img src="">
+         <img src="">
+         <img src="">
+         <img src="">
+         <img src="">
+      </div>
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+   </div>
+
+   <script>
+      // Slider fonksiyonları
+      let currentIndex = 0; // Başlangıç görseli
+      const slider = document.querySelector('.slider');
+      const images = document.querySelectorAll('.slider img');
+      const totalSlides = images.length;
+
+      function updateSlider() {
+         slider.style.transform = `translateX(${-currentIndex * 100}%)`;
+      }
+
+      function nextSlide() {
+         currentIndex = (currentIndex + 1) % totalSlides; // Son görsele gelince başa dön
+         updateSlider();
+      }
+
+      function prevSlide() {
+         currentIndex = (currentIndex - 1 + totalSlides) % totalSlides; // Baştan önce sona dön
+         updateSlider();
+      }
+
+      // Butonlara tıklama olayları
+      document.querySelector('.prev').addEventListener('click', prevSlide);
+      document.querySelector('.next').addEventListener('click', nextSlide);
+   </script>
+
+   <div class="right-container">
+      <div class="rightMenu"> 
+         <div class="quote"> 
+            <h2>Haftanın Sözü</h2> 
+            <p>"Gerçek dostluk, iki beden içinde yaşayan tek bir ruh gibidir." – Aristo</p> 
+         </div>
+   
+         <div class="topics"> 
+            <h2>Konular</h2>
+            <ul> 
+               <li><a href="#">Şiir</a></li>
+               <li><a href="#">Edebiyat</a></li>
+               <li><a href="#">Psikoloji</a></li>
+               <li><a href="#">Felsefe</a></li>
+               <li><a href="#">Dram</a></li> 
+               <li><a href="#">Bilim-Kurgu</a></li> 
+               <li><a href="#">Polisiye</a></li> 
+               <li><a href="#">Roman</a></li> 
+               <li><a href="#">Popüler Kitaplar</a></li> 
+               <li><a href="#">Hikaye</a></li> 
+               <li><a href="#">Yerli Edebiyat</a></li>
+               <li><a href="#">Yabancı Edebiyat</a></li>
+               <li><a href="#">Alıntılar</a></li> 
+               <li><a href="#">İncelemeler</a></li> 
+               <li><a href="#">Her Kitap</a></li> 
+            </ul>
+         </div>
+      </div>
+    </div>
+   
+</div>
+
+<footer>
+   <p>&copy; 2024 Her Kitap. Tüm hakları saklıdır.</p>
+   <p>Takip edin: 
+       <a href="#"><i class="fab fa-facebook"></i> Facebook</a> | 
+       <a href="#"><i class="fab fa-x"></i> X</a> |  
+       <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+   </p>
+</footer>
+
+</body>
+</html>

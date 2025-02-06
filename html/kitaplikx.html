@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+   <meta charset="UTF-8"> 
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+   <meta name="description" content="Her Kitap'ta takip ettiğiniz okurlardan, kitaplardan ve yazarlardan son paylaşımların yer aldığı sayfadır."> 
+   <title>Kitaplıkx</title>
+            
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"> 
+   <link rel="stylesheet" href="../css/style.css">
+   <link rel="stylesheet" href="../css/kitaplikx.css">
+   <link rel="stylesheet" href="../css/footer.css"> 
+   <link rel="stylesheet" href="../css/header.css"> 
+   <link rel="stylesheet" href="../css/leftMenu.css"> 
+   <link rel="stylesheet" href="../css/rightMenu.css"> 
+</head>
+<body>
+
+   <header>
+      <img src="../images/logo.jpg" class="logo">
+      HER KİTAP
+   </header>
+
+   <script>
+      // Geri dön butonuna tıklandığında önceki sayfaya dön
+      function goBack() {
+         window.history.back();
+      }
+  </script>
+
+<div class="container"> 
+     
+   <div class="left-container">
+      <div class="leftMenu"> 
+         <div class="back-button" onclick="goBack()"> 
+            <span>&larr;</span> 
+            <span>Geri Dön</span> 
+         </div>
+         <div class="search-container"> 
+            <input type="text" placeholder="Ara..."> 
+            <button type="button">Ara</button> 
+         </div>
+         <ul>
+            <li><a href="index.html"><i class="fas fa-book"></i> Her Kitap</a></li>
+            <li><a href="akisx.html"><i class="fas fa-stream"></i> Akış</a></li> 
+            <li><a href="kesfetx.html"><i class="fas fa-compass"></i> Keşfet</a></li> 
+            <li><a href="neokusamx.html"><i class="fas fa-question-circle"></i> Ne Okusam?</a></li> 
+            <li><a href="yazarlarx.html"><i class="fas fa-user"></i> Yazarlar</a></li> 
+            <li><a href="yayinevlerix.html"><i class="fas fa-book"></i> Yayın Evleri</a></li> 
+            <li><a href="kitaplikx.html"><i class="fas fa-book-open"></i> Kitaplık</a></li> 
+            <li><a href="girisyapx.html"><i class="fas fa-sign-in-alt"></i> Giriş Yap</a></li> 
+            <li><a href="kayitx.html"><i class="fas fa-user-plus"></i> Kaydol</a></li> 
+            <li><a href="hakkimizdax.html"><i class="fas fa-info-circle"></i> Hakkımızda</a></li> 
+            <li><a href="iletisimx.html"><i class="fas fa-envelope"></i> İletişim</a></li> 
+         </ul>
+      </div>
+   </div>
+
+   <div>
+       <h2>Kitaplık</h2> 
+      <div class="alphabet-nav">
+         <a href="#A">A</a>
+         <a href="#B">B</a>
+         <a href="#C">C</a>
+         <a href="#Ç">Ç</a>
+         <a href="#D">D</a>
+         <a href="#E">E</a>
+         <a href="#F">F</a>
+         <a href="#G">G</a>
+         <a href="#H">H</a>
+         <a href="#I">I</a>
+         <a href="#İ">İ</a>
+         <a href="#J">J</a>
+         <a href="#K">K</a>
+         <a href="#L">L</a>
+         <a href="#M">M</a>
+         <a href="#N">N</a>
+         <a href="#O">O</a>
+         <a href="#Ö">Ö</a>
+         <a href="#P">P</a>
+         <a href="#R">R</a>
+         <a href="#S">S</a>
+         <a href="#Ş">Ş</a>
+         <a href="#T">T</a>
+         <a href="#Ü">U</a>
+         <a href="#V">V</a>
+         <a href="#W">W</a>
+         <a href="#Y">Y</a>
+         <a href="#Z">Z</a>
+       </div>
+
+       <div class="book-list" id="book-list">
+         <!-- Kitaplar buraya yüklenecek -->
+       </div>
+      
+   </div>
+
+   <div class="right-container">
+      <div class="rightMenu"> 
+         <div class="quote"> 
+            <h2>Haftanın Sözü</h2> 
+            <p>"Gerçek dostluk, iki beden içinde yaşayan tek bir ruh gibidir." – Aristo</p> 
+         </div>
+      
+         <div class="topics"> 
+            <h2>Konular</h2>
+            <ul> 
+               <li><a href="#">Şiir</a></li>
+               <li><a href="#">Edebiyat</a></li>
+               <li><a href="#">Psikoloji</a></li>
+               <li><a href="#">Felsefe</a></li>
+               <li><a href="#">Dram</a></li> 
+               <li><a href="#">Bilim-Kurgu</a></li> 
+               <li><a href="#">Polisiye</a></li> 
+               <li><a href="#">Roman</a></li> 
+               <li><a href="#">Popüler Kitaplar</a></li> 
+               <li><a href="#">Hikaye</a></li> 
+               <li><a href="#">Yerli Edebiyat</a></li>
+               <li><a href="#">Yabancı Edebiyat</a></li>
+               <li><a href="#">Alıntılar</a></li> 
+               <li><a href="#">İncelemeler</a></li> 
+               <li><a href="#">Her Kitap</a></li> 
+            </ul>
+         </div>
+      </div>
+   </div>
+   
+</div>
+
+<footer>
+   <p>&copy; 2024 Her Kitap. Tüm hakları saklıdır.</p>
+   <p>Takip edin: 
+       <a href="#"><i class="fab fa-facebook"></i> Facebook</a> | 
+       <a href="#"><i class="fab fa-x"></i> X</a> |
+       <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+      </p>
+  </footer>
+ 
+
+  <script>
+
+document.addEventListener('DOMContentLoaded', () => {
+   fetch('/get-kitaplar')
+         .then(response => response.json())
+         .then(data => {
+            if (data.success) {
+               const bookList = document.querySelector('.book-list');
+               const kitaplar = data.kitaplar;
+
+               // Kitapları baş harfe göre gruplandır
+               const groupedKitaplar = kitaplar.reduce((acc, kitap) => {
+                     const firstLetter = kitap.adi.charAt(0).toUpperCase();
+                     if (!acc[firstLetter]) {
+                        acc[firstLetter] = [];
+                     }
+                     acc[firstLetter].push(kitap.adi);
+                     return acc;
+               }, {});
+
+               // Harfleri alfabetik sırayla al
+               const sortedKeys = Object.keys(groupedKitaplar).sort((a, b) => a.localeCompare(b, 'tr'));
+
+               // HTML'e ekleme işlemi
+               sortedKeys.forEach(letter => {
+                     const section = document.createElement('div');
+                     section.id = letter;
+                     section.classList.add('book-section');
+                     section.innerHTML = `
+                        <h2>${letter}</h2>
+                        <ul>
+                           ${groupedKitaplar[letter].sort((a, b) => a.localeCompare(b, 'tr'))
+                           .map(name => `<li>${name}</li>`).join('')}
+                        </ul>
+                     `;
+                     bookList.appendChild(section);
+               });
+            } else {
+               console.error(data.message);
+            }
+         })
+         .catch(error => {
+            console.error('Kitaplar yüklenirken bir hata oluştu:', error);
+         });
+});
+
+   
+   
+   </script>
+  </body>
+  </html>
+  

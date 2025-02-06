@@ -1,0 +1,30 @@
+ .slider-container {
+   width: 100%; /* Slayt genişliği */
+   overflow: hidden; /* Taşan görselleri gizle */
+   border: 1px solid #ccc;
+   border-radius: 8px;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+   }
+   
+   .slider {
+   display: flex; /* Görselleri yatay hizala */
+   transition: transform 0.5s ease; /* Yana kayma animasyonu */
+   }
+   
+   .slider img {
+   width: 100%; /* Görsellerin genişliği */
+   height: 550px;
+   object-fit: fill;
+   flex-shrink: 0; /* Görseller aynı genişlikte kalsın */
+   }
+   button.prev {
+   left: 10px; 
+   }
+   
+   button.next {
+   right: 10px; 
+   }
+   
+   button:hover {
+   background-color: rgba(0, 0, 0, 0.8);
+   }

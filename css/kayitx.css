@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    height: 80vh;
+ }
+ 
+ .section { /*Sayfanın merkezinde duran ana bölge*/
+    display: flex; /* Flexbox kullanımı */
+    justify-content: center; /* Yatay ortalama */
+    align-items: center; /* Dikey ortalama */
+    height: 100%;
+ }
+ 
+ .login-container {/*Giriş kutusunun tasarımı*/
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /*gölgelendirme için*/
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column; /* İçeriği dikey olarak sıralar (üst üste dizilir)*/
+    justify-content: center; /* İçeriği kutunun dikey ortasına hizalar*/
+    align-items: center; /* İçeriği yatay ortalar*/
+  
+ }
+ 
+ .input-group {  /* Her bir girdi alanını (input) ve onun etiketini (label) kapsayan grup*/
+    display: flex; 
+    flex-direction: column;/* İçeriği dikey sıralar (bir etiket, ardından bir kutu)*/
+    justify-content: center;
+    align-items: center;
+ 
+    margin-bottom: 20px;
+    width: 80%;
+ }
+ 
+ .input-group label {/*Etiketin (örneğin, "Kullanıcı Adı") tasarımı*/
+    align-self: flex-start; /*Etiketi grubun sol tarafına hizalar*/
+    margin-bottom: 5px; /*Etiket ile altındaki kutu arasında 5 piksel boşluk bırakır*/
+    color: #555;
+ }
+ 
+ .input-group input {/*Metin girişi (kullanıcı adı veya şifre kutusu) tasarımı*/
+ width: 100%;
+ padding: 10px;
+ border: 1px solid #ccc;
+ border-radius: 5px;
+ }
+ 
+ .submit-button {/*Giriş düğmesinin tasarımı*/
+    width: 85%; /*düğmenin genişliğini kutunun %85’i kadar yapar*/
+    padding: 10px;/* Düğme metni ile kenarlar arasında 10 piksel boşluk bırakır*/
+    border: none;/*Düğmenin kenarlarını kaldırır (düz yapar)*/
+    border-radius: 5px;/*Kenarlarını hafif yuvarlar (5 piksel)*/
+    background-color: #ff0000; /* Düğmenin rengini parlak mavi (#007bff) yapar*/
+    color: white; /*Düğme üzerindeki metni beyaz renkte gösterir*/
+    cursor: pointer;/* Fare ile üzerine gelindiğinde bir işaretçi belirir*/
+    font-size: 16px;/* Yazı boyutunu 16 piksel yapar*/
+    transition: background-color 0.3s ease;/* Düğmenin rengi değiştiğinde yumuşak bir geçiş sağlar (0.3 saniye sürer)*/
+ 
+ }
+ 
+ .submit-button:hover { /* Kullanıcı fareyi düğmenin üzerine getirince oluşan etki*/
+ background-color: #f86060;
+ }
+ .login-link a{
+    text-decoration: none;
+    color: #ff0000;
+ }

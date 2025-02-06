@@ -1,0 +1,29 @@
+ /* Genel Stil Ayarları */
+ body {
+    font-family: Arial, sans-serif; /* Yazı tipi ayarı */
+    margin: 0; /* Varsayılan kenar boşluklarını kaldır */
+    padding: 0; /* Varsayılan iç boşlukları kaldır */
+    background-color: #f0f0f0; /* Arka plan rengi */
+    color: #333; /* Metin rengi */
+    padding-bottom: 50px; /* Footer için alt boşluk */ 
+ }
+ 
+
+ 
+  /* Başlıkların stil ayarları */
+   h2 {
+       color: #333; /* Başlık metni koyu gri renk olur */
+       border-bottom: 2px solid #333; /* Başlığın altına gri bir çizgi çeker */
+       padding-bottom: 7px; /* Başlığın altına 10px boşluk bırakır */
+       margin-bottom: 15px; /* Başlık ile sonraki içerik arasında 20px boşluk bırakır */
+   }
+
+  
+  /* Üç sütun düzeni için grid yapısı */
+ .container {
+    display: grid; /* Grid düzeni kullan */
+    grid-template-columns: 1fr 3fr 1fr; /* 3 sütun düzeni (sol, orta, sağ) */
+    gap: 4px; /* Sütunlar arasındaki boşluk */
+    padding: 8px; /* İç boşluk */
+    align-items: start; /* Sütunları üstten hizala */
+ }

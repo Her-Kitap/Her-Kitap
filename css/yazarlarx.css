@@ -1,0 +1,43 @@
+.yazar-list h2 {
+   margin-top: 0; /* Üstten boşluk kaldır */
+}
+
+.yazar-list ul {
+   list-style-type: none; /* Liste işaretlerini kaldır */
+   padding: 0; /* İç boşluğu kaldır */
+}
+
+.yazar-list ul li {
+   padding: 8px 0; /* Üst ve alt boşluk */
+   border-bottom: 1px solid #ccc; /* Alt kenar çizgisi */
+}
+
+/* .alphabet-nav: Alfabe navigasyonunu stilize eder */
+.alphabet-nav {
+  display: flex; /* İçindeki öğeleri yatayda esnek bir şekilde sıralar */
+  gap: 10px; /* Öğeler arasına 10px boşluk bırakır */
+  flex-wrap: wrap; /* Öğeler sığmazsa bir sonraki satıra geçer */
+  margin-bottom: 20px; /* Navigasyonun altına 20px boşluk ekler */
+}
+
+/* .alphabet-nav a: Bağlantıların stilini belirler */
+.alphabet-nav a {
+  text-decoration: none; /* Bağlantıların altını çizmeyi kaldırır */
+  padding: 5px 10px; /* Bağlantılara 5px üst ve alt, 10px sağ ve sol iç boşluk ekler */
+  border: 1px solid #333; /* Bağlantılara 1px kalınlığında koyu gri renkli bir kenarlık ekler */
+  border-radius: 4px; /* Bağlantıların köşelerini yuvarlatır */
+  color: #333; /* Bağlantıların metin rengini koyu gri yapar */
+  transition: background 0.3s; /* Arka plan rengindeki değişimi 0.3 saniyede yumuşak bir şekilde yapar */
+}
+
+/* .alphabet-nav a:hover: Bağlantıların üzerine gelindiğinde değişen stil */
+.alphabet-nav a:hover {
+  background: #333; /* Bağlantı üzerine gelindiğinde arka planı koyu gri yapar */
+  color: white; /* Bağlantının rengini beyaz yapar */
+} 
+
+
+
+
+
+       

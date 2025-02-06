@@ -1,0 +1,15 @@
+      /* Header stil ayarları */
+      header {
+        background-color: #333; /* Üst bilgi alanı arka plan rengi */
+        color: #fff; /* Üst bilgi alanı metin rengi */
+        text-align: center; /* Metni ortala */
+        padding: 20px 0; /* Üst ve alt boşluk */
+        font-size: 40px; /* Yazı boyutu */
+        font-weight: bold; /* Yazı kalınlığı */
+     }
+     
+     .logo {
+     max-width: 40px; /* Logo genişliği */
+     margin-right: 15px; /* Logo ile başlık metni arasında boşluk */
+      height: auto; /* Yüksekliği otomatik olarak ayarla */
+     }

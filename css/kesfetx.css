@@ -1,0 +1,103 @@
+
+     
+       /* Kitaplar,Yazarlar, Yorumlar için ızgara düzeni */
+       .book-grid {
+           display: grid; /* Grid düzeni kullanır */
+           grid-template-columns: repeat(3, 1fr); /* 4 sütunlu bir grid düzeni oluşturur */
+           gap: 10px; /* Hücreler arasına 5px boşluk bırakır */
+       }
+
+       /* Kartlar */
+       .book-card {
+           
+           border-radius: 8px; /* Kenarlarını 8px yuvarlatır */
+           background-color: #f4f4f4; /* Kitap kutusunun arka plan rengini açık gri yapar */
+           padding: 10px; /* Kartın etrafına boşluk bırakır */
+           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti ekler */
+           text-align: center; /* İçeriği ortalar */
+       }
+
+       .book-card img {
+           border-radius: 5px; /* Görselin kenarlarını 5px yuvarlatır */
+        
+       }
+
+       .book-card h3 {
+           font-size: 18px; /* Başlık font boyutunu 18px yapar */
+           color: #333; /* Başlık metnini koyu gri yapar */
+           margin: 15px 0 10px; /* Başlık etrafında boşluk bırakır */
+       }
+
+       .book-card p {
+           color: #777; /* Kitap açıklamasını gri yapar */
+           font-size: 14px; /* Yazı font boyutunu 14px yapar */
+       }
+
+       .book-card:hover {
+        transform: scale(1.05); /* Kutu üzerine gelindiğinde %5 oranında büyür (hover efekti) */
+     }
+     
+
+       /* Diğer bölümler için genel stil ayarları */
+       .section {
+           margin-bottom: 40px; /* Bölüm arasına boşluk bırakır */
+       }
+
+       /* Yazar önerileri bölümü */
+       .author-section {
+           display: flex; /* Flexbox düzeni kullanır */
+           gap: 10px; /* Kartlar arasına boşluk bırakır */
+           margin-bottom: 30px; /* Yazarlar bölümü ile alt bölüm arasına boşluk bırakır */
+       }
+       .yayinevi-section {
+        display: flex; /* Flexbox düzeni kullanır */
+        gap: 10px; /* Kartlar arasına boşluk bırakır */
+        margin-bottom: 30px; /* Yazarlar bölümü ile alt bölüm arasına boşluk bırakır */
+    }
+
+       .author-card {
+           border-radius: 8px; /* Kenarlarını 8px yuvarlatır */
+           flex: 1; /* Her kartın eşit genişlikte olmasını sağlar */
+           background-color: #f4f4f4; /* Kitap kutusunun arka plan rengini açık gri yapar */
+           padding: 10px; /* Kartın etrafına boşluk bırakır */
+           text-align: center; /* İçeriği ortalar */
+           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti ekler */
+       }
+
+       .author-card img {
+           border-radius: 50%; /* Yazar resmini yuvarlar */
+           width: 150px; /* Resmin genişliğini 150px yapar */
+           height: 150px; /* Resmin yüksekliğini 150px yapar */
+       }
+
+       .author-card h3 {
+           margin-top: 10px; /* Başlık ile resim arasına boşluk bırakır */
+           font-size: 20px; /* Başlık font boyutunu 20px yapar */
+           color: #333; /* Başlık metnini koyu gri yapar */
+       }
+
+       .author-card:hover {
+        transform: scale(1.05); /* Kutu üzerine gelindiğinde %5 oranında büyür (hover efekti) */
+     }
+
+       
+ /* Bağlantılara temel stil */
+a {
+    color: #333; 
+   font-size: 16px;
+  
+   text-decoration: none; /* Alt çizgiyi kaldır */
+  
+ }
+ a i {
+   margin-right: 8px; /* İkon ve yazı arasındaki boşluk */
+ }
+ a:hover{
+   text-decoration: underline; /* Üzerine gelince altını çizer */
+ }
+ 
+
+    
+    
+  
+    

@@ -1,0 +1,51 @@
+/* Kitap inceleme kutusunun düzeni */
+.book-review {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px; /* Kitap görseli ve açıklaması arasında boşluk */
+    margin-bottom: 10px; /* Alt boşluk */
+}
+
+/* Kitap görselinin stili */
+.book-review img {
+    width: 150px; /* Görselin genişliği */
+    height: auto; /* Yüksekliğini otomatik olarak ayarla */
+    border-radius: 4px; /* Kenarları yuvarla */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* sol sağ ve yukarı gölgesiz hafif gölge efekti */
+}
+
+/* Kitap başlığının stili */
+.book-details h2 {
+    margin: 0; /* Başlık etrafındaki boşluğu sıfırlamak için */
+    font-size: 1.5rem; 
+    color: #333; 
+}
+
+/* Kitap açıklamaları arasındaki stil */
+.book-details p {
+    width: 95vh; 
+    margin: 10px 0; /* Paragraflar arasındaki boşluk */
+    line-height: 1.6; /* Satır yüksekliği */
+}
+
+/* Yorum alanının üst boşluğu */
+.comments {
+    margin-top: 4px; /* Yorum alanının üst kısmına boşluk */
+}
+
+/* Yorum kutusunun stilini ayarlama */
+.comments textarea {
+    width: 98%; /* Kutu genişliğini tam yap */
+    padding: 4px; /* İçerik boşluğu */
+    margin-bottom: 4px; /* Kutu altındaki boşluk */
+    border: 1px solid #ccc; /* Sınır rengi */
+    border-radius: 4px; /* Yuvarlak köşeler */
+}
+
+/* Yorumların stilini ayarlama */
+.comments .comment {
+    background: #f9f9f9; /* Yorumların arka plan rengi */
+    padding: 4px; /* İçerik boşluğu */
+    margin-bottom: 4px; /* Yorumlar arasındaki boşluk */
+    border-left: 4px solid #007BFF; /* Yorumun sol tarafında mavi renkli çizgi */
+}

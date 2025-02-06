@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="Her Kitap - Admin Paneli">
+   <script src="../js/admin.js"></script>
+   <title>Admin Paneli - Her Kitap</title>
+
+   <!-- CSS Bağlantıları -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+   <link rel="stylesheet" href="../css/style.css">
+   <link rel="stylesheet" href="../css/footer.css">
+   <link rel="stylesheet" href="../css/header.css">
+   <link rel="stylesheet" href="../css/leftMenu.css">
+   <link rel="stylesheet" href="../css/rightMenu.css">
+
+   <style>
+      /* Genel Admin Paneli Stilleri */
+      .admin-container {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 20px;
+         padding: 20px;
+      }
+
+      .admin-section {
+         flex: 1 1 calc(50% - 40px);
+         background-color: #f9f9f9;
+         border: 1px solid #ddd;
+         border-radius: 5px;
+         padding: 20px;
+         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .admin-section h2 {
+         font-size: 1.2rem;
+         margin-bottom: 10px;
+         border-bottom: 2px solid #ddd;
+         padding-bottom: 5px;
+      }
+
+      .admin-section ul {
+         list-style-type: none;
+         padding: 0;
+      }
+
+      .admin-section ul li {
+         margin: 10px 0;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+      }
+
+      .admin-section input, .admin-section button, .admin-section textarea, .admin-section select {
+         padding: 10px;
+         margin: 5px 0;
+         width: 100%;
+         box-sizing: border-box;
+      }
+
+      .admin-section button {
+         background-color: #007bff;
+         color: white;
+         border: none;
+         cursor: pointer;
+         transition: background-color 0.3s ease;
+         border-radius: 4px;
+      }
+
+      /* Tablonun genişliğini artır ve öğeleri ortala */
+      #users-table {
+         width: 100%; /* Tablonun genişliğini %100 yap */
+         border-collapse: collapse; /* Kenarlıkları birleştir */
+         margin: 20px 0; /* Üst ve alt boşluk ekle */
+      }
+
+      #users-table th, #users-table td {
+         padding: 10px; /* Hücrelere iç boşluk ekle */
+         text-align: center; /* Metni ortala */
+         border: 1px solid #ddd; /* Hücre kenarlıkları */
+      }
+
+      #users-table th {
+         background-color: #f4f4f4; /* Başlık hücreleri için arka plan rengi */
+         font-weight: bold; /* Başlık hücrelerini kalın yap */
+      }
+
+      #users-table tr:nth-child(even) {
+         background-color: #f9f9f9; /* Çift satırlar için arka plan rengi */
+      }
+
+      #users-table tr:hover {
+         background-color: #f1f1f1; /* Üzerine gelindiğinde satır rengi */
+      }
+
+      /* Güncelleme butonları için stil */
+      .green {
+         background-color: #007bff; /* Varsayılan mavi renk */
+         color: white;
+         border: none;
+         cursor: pointer;
+         transition: background-color 0.3s ease;
+         border-radius: 4px;
+      }
+
+      .green:hover {
+         background-color: #28a745; /* Üzerine gelindiğinde yeşil renk */
+      }
+
+      /* Silme butonları için stil */
+      .red {
+         background-color: #dc3545; /* Varsayılan kırmızı renk */
+         color: white;
+         border: none;
+         cursor: pointer;
+         transition: background-color 0.3s ease;
+         border-radius: 4px;
+      }
+
+      .red:hover {
+         background-color: #c82333; /* Üzerine gelindiğinde daha koyu kırmızı renk */
+      }
+
+      .kitap-resim {
+         width: 200px;
+         height: 200px;
+         object-fit: cover; /* Resmi kırpmadan sığdır */
+         margin-bottom: 10px; /* Resim ve buton arasında boşluk */
+      }
+
+      .kitap-resim-container {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         margin-bottom: 20px; /* Her resim bloğu arasında boşluk */
+      }
+
+      #kitap-resimleri-container {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: flex-start;
+         gap: 20px; /* Gruplar arasında boşluk */
+      }
+
+      .kitap-resim-container {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         width: 250px; /* Her bir grubun genişliği */
+      }
+
+      .kitap-resim-input {
+         margin-bottom: 10px; /* Resim değiştirme butonu ve güncelleme butonu arasında boşluk */
+      }
+
+      .update-kitap-button {
+         width: 100px; /* Buton genişliği */
+      }
+
+      .kitap-card {
+      width: 230px; /* Kart genişliği */
+      margin: 10px; /* Kartlar arasında boşluk */
+      border: 1px solid #ccc; /* Kart kenarlığı */
+      border-radius: 8px; /* Köşeleri yuvarlat */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+      overflow: hidden; /* İçerik taşmasını önle */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+   }
+
+   .kitap-card img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      margin-bottom: 10px;
+   }
+
+   #kitap-container {
+      display: flex;
+      flex-wrap: wrap; /* Kartların yan yana dizilmesini sağlar */
+      justify-content: center; /* Kartları ortalar */
+   }
+
+   </style>
+</head>
+<body>
+<header>
+   <img src="../images/logo.jpg" class="logo">
+   HER KİTAP
+</header>
+
+<div class="container">
+   <!-- Sol Menü -->
+   <div class="left-container">
+      <div class="leftMenu">
+          <!-- Sol Menü İçeriği -->
+          <div class="back-button" onclick="goBack()"> 
+              <span>&larr;</span> 
+              <span>Geri Dön</span> 
+           </div>
+           <div class="search-container"> 
+              <input type="text" placeholder="Ara..."> 
+              <button type="button">Ara</button> 
+           </div>
+           <ul>
+              <li><a href="index.html"><i class="fas fa-book"></i> Her Kitap</a></li>
+              <li><a href="akisx.html"><i class="fas fa-stream"></i> Akış</a></li> 
+              <li><a href="kesfetx.html"><i class="fas fa-compass"></i> Keşfet</a></li> 
+              <li><a href="neokusamx.html"><i class="fas fa-question-circle"></i> Ne Okusam?</a></li> 
+              <li><a href="yazarlarx.html"><i class="fas fa-user"></i> Yazarlar</a></li> 
+              <li><a href="yayinevlerix.html"><i class="fas fa-book"></i> Yayın Evleri</a></li> 
+              <li><a href="kitaplikx.html"><i class="fas fa-book-open"></i> Kitaplık</a></li> 
+              <li><a href="girisyapx.html"><i class="fas fa-sign-in-alt"></i> Giriş Yap</a></li> 
+              <li><a href="kayitx.html"><i class="fas fa-user-plus"></i> Kaydol</a></li> 
+              <li><a href="hakkimizdax.html"><i class="fas fa-info-circle"></i> Hakkımızda</a></li> 
+              <li><a href="iletisimx.html"><i class="fas fa-envelope"></i> İletişim</a></li> 
+              </ul> 
+      </div>
+  </div>
+  <!-- Admin Paneli -->
+<div class="admin-container">
+
+<!-- Kullanıcı bilgileri -->
+
+   <!-- Hakkımızda Güncelleme -->
+   <div class="admin-section">
+      <h2>Hakkımızda Güncelleme</h2>
+      <textarea id="hakkimizda" placeholder="Hakkımızda bilgilerini buraya yazın..." rows="5"></textarea>
+      <button class="green" onclick="updateHakkimizda()">Güncelle</button>
+   </div>
+
+   <!-- İletişim Bilgilerini Güncelleme -->
+   <div class="admin-section">
+      <h2>İletişim Bilgilerini Güncelleme</h2>
+      <input type="email" id="email" placeholder="E-posta adresi">
+      <input type="text" id="telefon" placeholder="Telefon numarası">
+      <input type="text" id="instagram" placeholder="Instagram hesabı">
+      <input type="text" id="x" placeholder="X (Twitter) hesabı">
+      <input type="text" id="facebook" placeholder="Facebook hesabı">
+      <button class="green" onclick="updateIletisim()">Bilgileri Güncelle</button>
+   </div>
+
+   <!-- Yazar Yönetimi -->
+   <div class="admin-section">
+      <h2>Yazar Ekle</h2>
+      <div>
+         
+         <input type="text" id="yazar-adi" placeholder="Yazar Adı">
+        
+         <input type="text" id="dogum-yili" placeholder="Doğum Yılı">
+         <textarea id="yazar-aciklama" placeholder="Yazar hakkında açıklama..." rows="5"></textarea>
+         <input type="file" id="yazar-resmi" placeholder="Yazar Resmi">
+         <button class="green" onclick="addYazar()">Yazar Ekle</button>
+      </div>
+      <div>
+         <h3>Yazar Çıkar</h3>
+         <select id="yazar-liste">
+            <!-- Yazarlar buraya yüklenecek -->
+         </select>
+         <button class="red" onclick="removeYazar()">Yazar Çıkar</button>
+      </div>
+   </div>
+
+   <!-- Kitap Yönetimi -->
+   <div class="admin-section">
+      <h2>Kitap Yönetimi</h2>
+      <div id="kitap-container">
+         <!-- Kitaplar buraya yüklenecek -->
+      </div>
+      <div>
+         <h3>Yeni Kitap Ekle</h3>
+         <input type="text" id="kitap-adi" placeholder="Kitap Adı">
+         <input type="text" id="kitap-yazari" placeholder="Yazar">
+         <textarea id="kitap-aciklama" placeholder="Açıklama" rows="3"></textarea>
+         <input type="text" id="kitap-kategori" placeholder="Kategori">
+         <input type="file" id="kitap-resmi" accept="image/*">
+         <button onclick="addKitap()">Ekle</button>
+      </div>
+   </div>
+
+   <!-- Kullanıcı Yönetimi -->
+   <div class="admin-section">
+      <h2>Kullanıcı Yönetimi</h2>
+      <table id="users-table">
+         <thead>
+            <tr>
+               <th>Kullanıcı Adı</th>
+               <th>E-posta</th>
+               <th>Yetki</th>
+               <th>İşlemler</th>
+            </tr>
+         </thead>
+         <tbody>
+            <!-- Kullanıcılar buraya yüklenecek -->
+         </tbody>
+      </table>
+   </div>
+
+   <!-- Kitap Resimleri Yönetimi -->
+   <div class="admin-section">
+      <h2>Kitap Resimleri Yönetimi</h2>
+      <div id="kitap-resimleri-container">
+         <!-- Kitap resimleri buraya yüklenecek -->
+      </div>
+   </div>
+
+   <!-- Yayınevi Yönetimi -->
+   <div class="admin-section">
+      <h2>Yayınevi Yönetimi</h2>
+      <div id="yayinevi-container">
+         <!-- Yayınevleri buraya yüklenecek -->
+      </div>
+      <div>
+         <h3>Yayınevi Bilgilerini Düzenle veya Ekle</h3>
+         <input type="text" id="yayineviadi" placeholder="Yayınevi Adı">
+         <input type="text" id="anasirket" placeholder="Ana Şirket">
+         <input type="text" id="durum" placeholder="Durum">
+         <input type="text" id="kurulus" placeholder="Kuruluş">
+         <input type="text" id="kurucu" placeholder="Kurucu">
+         <input type="text" id="ulke" placeholder="Ülke">
+         <input type="text" id="merkez" placeholder="Merkez">
+         <input type="text" id="yayinturleri" placeholder="Yayın Türleri">
+         <input type="text" id="yayinkonulari" placeholder="Yayın Konuları">
+         <input type="text" id="resmisite" placeholder="Resmi Site">
+         <input type="file" id="yayineviresmi" accept="image/*">
+         <button id="add-button" onclick="addYayinevi()">Ekle</button>
+         <button id="update-button">Güncelle</button>
+      </div>
+   </div>
+</div>
+
+
+   <div class="right-container">
+      <div class="rightMenu">
+          <!-- Sağ Menü İçeriği -->
+          <div class="quote"> 
+              <h2>Haftanın Sözü</h2> 
+              <p>"Gerçek dostluk, iki beden içinde yaşayan tek bir ruh gibidir." – Aristo</p> 
+           </div>
+     
+           <div class="topics"> 
+              <h2>Konular</h2>
+              <ul> 
+                 <li><a href="#">Şiir</a></li>
+                 <li><a href="#">Edebiyat</a></li>
+                 <li><a href="#">Psikoloji</a></li>
+                 <li><a href="#">Felsefe</a></li>
+                 <li><a href="#">Dram</a></li> 
+                 <li><a href="#">Bilim-Kurgu</a></li> 
+                 <li><a href="#">Polisiye</a></li> 
+                 <li><a href="#">Roman</a></li> 
+                 <li><a href="#">Popüler Kitaplar</a></li> 
+                 <li><a href="#">Hikaye</a></li> 
+                 <li><a href="#">Yerli Edebiyat</a></li>
+                 <li><a href="#">Yabancı Edebiyat</a></li>
+                 <li><a href="#">Alıntılar</a></li> 
+                 <li><a href="#">İncelemeler</a></li> 
+                 <li><a href="#">Her Kitap</a></li> 
+              </ul>
+           </div>
+        </div> 
+      </div>
+  </div> 
+</div>
+
+<footer>
+   <p>&copy; 2024 Her Kitap. Tüm hakları saklıdır.</p>
+</footer>
+
+</body>
+</html>

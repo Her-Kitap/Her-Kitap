@@ -1,0 +1,82 @@
+/* Ortak sütun stil ayarları */
+.leftMenu {
+    padding: 20px; /* İç boşluk */
+    background-color: #333; /* Menü arka plan rengi */
+    color: #fff; /* Menü metin rengi */
+    border: 1px solid #ccc; /* Kenar çizgisi */
+    border-radius: 4px; /* Kenar yuvarlama */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Gölgelendirme */
+ }
+ 
+ .left-container{
+   position: sticky; /* Sayfada kaydırıldığında sabit kalır */
+   top: 8px; /* Üstten 8px mesafe */
+   align-self: start; /* Üstten hizala */
+   }
+
+ .leftMenu h2 {
+    margin-top: 0; /* Üstten boşluk kaldır */
+ }
+ 
+ .leftMenu ul {
+    list-style-type: none; /* Liste işaretlerini kaldır */
+    padding: 0; /* İç boşluğu kaldır */
+ }
+ 
+ .leftMenu ul li {
+    padding: 10px 0; /* Üst ve alt boşluk */
+    border-bottom: 1px solid #444; /* Alt kenar çizgisi */
+ }
+ 
+ .leftMenu ul li a {
+    text-decoration: none; /* Alt çizgiyi kaldır */
+    color: #fff; /* Bağlantı metin rengi */
+    display: flex; /* Flex düzeni ile ikon ve metni yan yana yerleştir */
+    align-items: center; /* Dikey olarak ortala */
+ }
+ 
+ .leftMenu ul li a i {
+    margin-right: 10px; /* İkon ile metin arasına boşluk ekle */
+ }
+ 
+ .leftMenu ul li a:hover {
+    text-decoration: underline; /* Üzerine gelince altını çizer */
+    color: #007bff; /* Üzerine gelince metin rengi değişir */
+ }
+
+     
+   
+    /* Geri dön butonu için stil */
+    .back-button {
+      display: flex; /* Flex düzeni */
+      align-items: center; /* Dikey olarak ortala */
+      cursor: pointer; /* İmleci tıklanabilir hale getir */
+      margin-bottom: 15px; /* Alt boşluk */
+   }
+   
+   .back-button span {
+      margin-left: 8px; /* Sol boşluk */
+   }
+   
+    /* Arama kutusu için stil */
+   .search-container {
+      display: flex; /* Flex düzeni */
+      margin-bottom: 15px; /* Alt boşluk */
+   }
+   
+   .search-container input {
+      flex: 1; /* Genişliğin tamamını kaplar */
+      padding: 10px; /* İç boşluk */
+      border: 1px solid #ccc; /* Kenar çizgisi */
+      border-radius: 4px; /* Kenar yuvarlama */
+      margin-right: 10px; /* Sağ boşluk */
+   }
+   
+   .search-container button {
+      padding: 10px 15px; /* İç boşluk */
+      background-color: #d3d3d3; /* Buton arka plan rengi */
+      color: #333; /* Buton metin rengi */
+      border: none; /* Kenar çizgisini kaldır */
+      border-radius: 4px; /* Kenar yuvarlama */
+      cursor: pointer; /* İmleci tıklanabilir hale getir */
+   }

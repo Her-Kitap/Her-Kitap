@@ -1,0 +1,83 @@
+/* Genel Kitap Listesi Stil Ayarları */
+.book-list {
+   margin: 0;
+   padding: 0;
+}
+
+/* Kitap Başlıkları (Harf Grupları) */
+.book-list h2 {
+   margin-top: 0; /* Üstten boşluk kaldır */
+   font-size: 20px; /* Başlık boyutu */
+   color: #444; /* Başlık rengi */
+}
+
+/* Liste Genel Stil Ayarları */
+.book-list ul {
+   list-style-type: none; /* Liste işaretlerini kaldır */
+   padding: 0; /* İç boşluğu kaldır */
+}
+
+/* Liste Öğeleri (Kitaplar) */
+.book-list ul li {
+   padding: 10px 0; /* Üst ve alt boşluk */
+   border-bottom: 1px solid #ccc; /* Alt kenar çizgisi */
+   margin: 5px 0; /* Liste öğeleri arasına boşluk ekler */
+   line-height: 1.6; /* Satır yüksekliği */
+   display: flex; /* Bilgileri yan yana düzenlemek için */
+   flex-direction: column; /* Dikey sıralama */
+   font-size: 17px; /* Kitap adı boyutu */
+   color: #333; /* Kitap adı rengi */
+}
+
+/* Kitap Adı */
+.book-title {
+   font-weight: bold; /* Kalın yazı */
+   font-size: 18px; /* Daha büyük yazı */
+   color: #333; /* Koyu gri */
+   margin-bottom: 5px; /* Alt boşluk */
+}
+
+/* Yazar Adı */
+.book-author {
+   font-size: 16px; /* Yazar adı boyutu */
+   color: #555; /* Orta tonlu gri */
+   margin-left: 10px; /* Kitap adı ile yazar arasında boşluk */
+}
+
+/* Kitap Türü */
+.book-genre {
+   font-size: 15px; /* Kitap türü boyutu */
+   color: #777; /* Daha açık bir gri */
+   margin-left: 10px; /* Yazar adı ile tür arasında boşluk */
+}
+
+/* Yayın Yılı */
+.book-year {
+   font-size: 14px; /* Yayın yılı boyutu */
+   color: #999; /* Daha açık bir ton */
+   margin-left: 10px; /* Tür ile yayın yılı arasında boşluk */
+}
+
+/* Alfabe Navigasyonu */
+.alphabet-nav {
+   display: flex; /* İçindeki öğeleri yatayda esnek bir şekilde sıralar */
+   gap: 10px; /* Öğeler arasına 10px boşluk bırakır */
+   flex-wrap: wrap; /* Öğeler sığmazsa bir sonraki satıra geçer */
+   margin-bottom: 20px; /* Navigasyonun altına 20px boşluk ekler */
+}
+
+/* Alfabe Linklerinin Stili */
+.alphabet-nav a {
+   text-decoration: none; /* Bağlantıların altını çizmeyi kaldırır */
+   padding: 5px 10px; /* İç boşluk */
+   border: 1px solid #333; /* Kenarlık */
+   border-radius: 4px; /* Köşeleri yuvarlat */
+   color: #333; /* Metin rengi */
+   transition: background 0.3s; /* Geçiş efekti */
+}
+
+/* Alfabe Linklerinin Hover Durumu */
+.alphabet-nav a:hover {
+   background: #333; /* Arka plan rengi */
+   color: white; /* Metin rengi */
+}
