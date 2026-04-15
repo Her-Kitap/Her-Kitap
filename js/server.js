@@ -4,6 +4,7 @@ const { MongoClient } = require('mongodb'); // MongoDB bağlantısı için Mongo
 const path = require('path'); // Dosya ve dizin yollarını işlemek için Node.js path modülü.
 const multer = require('multer');
 const fs = require('fs');
+const crypto = require('crypto');
 const { ObjectId } = require('mongodb');
 
 const app = express(); // Express uygulaması oluştur.
@@ -12,9 +13,47 @@ const mongoUri = 'mongodb://localhost:27017/herKitap'; // MongoDB bağlantı URI
 // MongoDB bağlantısı
 const client = new MongoClient(mongoUri); // MongoDB istemcisi oluştur.
 let db;
-client.connect().then(() => { 
-    db = client.db('herKitap'); // MongoDB'ye bağlan ve veritabanını herKitap olarak ayarla.
-});
+const sessions = new Map();
+
+function parseCookies(cookieHeader = '') {
+    return cookieHeader
+        .split(';')
+        .map(part => part.trim())
+        .filter(Boolean)
+        .reduce((acc, part) => {
+            const [key, ...rest] = part.split('=');
+            acc[key] = decodeURIComponent(rest.join('=') || '');
+            return acc;
+        }, {});
+}
+
+function createSession(user) {
+    const sessionId = crypto.randomUUID();
+    sessions.set(sessionId, {
+        e_mail: user.e_mail,
+        yetki: user.yetki
+    });
+    return sessionId;
+}
+
+function getSession(req) {
+    const cookies = parseCookies(req.headers.cookie);
+    const sessionId = cookies.sessionId;
+    if (!sessionId) return null;
+    return sessions.get(sessionId) || null;
+}
+
+function isAdmin(req) {
+    const session = getSession(req);
+    return !!session && session.yetki === 'admin';
+}
+
+function requireAdmin(req, res, next) {
+    if (!isAdmin(req)) {
+        return res.status(403).json({ success: false, message: 'Bu işlem için admin yetkisi gerekli.' });
+    }
+    next();
+}
 
 // Middleware
 app.use(express.json()); // JSON formatındaki veri gövdesini çözümle.
@@ -22,6 +61,12 @@ app.use(express.urlencoded({ extended: true })); // Form verilerini çözümle.
 app.use('/css', express.static(path.join(__dirname, '../css'))); // CSS dosyalarını statik olarak sun.
 app.use('/js', express.static(path.join(__dirname, '../js'))); // JS dosyalarını statik olarak sun.
 app.use('/images', express.static(path.join(__dirname, '../images'))); // Resim dosyalarını statik olarak sun.
+app.use((req, res, next) => {
+    if (req.path === '/admin.html' && !isAdmin(req)) {
+        return res.redirect('/girisyapx.html');
+    }
+    next();
+});
 app.use(express.static(path.join(__dirname, '../html'))); // HTML dosyalarını statik olarak sun.
 
 
@@ -97,6 +142,9 @@ app.post('/login', async (req, res) => {
         if (!isPasswordValid) { // Şifre yanlışsa hata mesajı döndür.
             return res.json({ success: false, message: 'Şifre yanlış.' });
         }
+
+        const sessionId = createSession(user);
+        res.setHeader('Set-Cookie', `sessionId=${encodeURIComponent(sessionId)}; HttpOnly; Path=/; SameSite=Lax`);
 
         // Kullanıcının yetkisine göre yönlendirme yap
         if (user.yetki === 'admin') {
@@ -233,7 +281,7 @@ app.get('/rastgele-kitap', async (req, res) => {
 
 
 // Hakkımızda güncelleme
-app.post('/update-hakkimizda', async (req, res) => {
+app.post('/update-hakkimizda', requireAdmin, async (req, res) => {
     const { hakkimizda } = req.body; // İstemciden gelen hakkımızda metnini al.
     const hakkimizdaCollection = db.collection('hakkımızda'); // Veritabanındaki "hakkımızda" koleksiyonuna eriş.
 
@@ -269,7 +317,7 @@ app.get('/get-hakkimizda', async (req, res) => {
 });
 
 // İletişim bilgilerini güncelleme
-app.post('/update-iletisim', async (req, res) => {
+app.post('/update-iletisim', requireAdmin, async (req, res) => {
     const { email, telefon, instagram, x, facebook } = req.body; // İstemciden gelen iletişim bilgilerini al.
     const iletisimCollection = db.collection('iletisim'); // Veritabanındaki "iletisim" koleksiyonuna eriş.
 
@@ -305,7 +353,7 @@ app.get('/get-iletisim', async (req, res) => {
 });
 
 // Kullanıcıları getirme
-app.get('/get-users', async (req, res) => {
+app.get('/get-users', requireAdmin, async (req, res) => {
     const usersCollection = db.collection('user'); // Veritabanındaki "user" koleksiyonuna eriş.
 
     try {
@@ -318,7 +366,7 @@ app.get('/get-users', async (req, res) => {
 });
 
 // Kullanıcı yetkisi güncelleme
-app.post('/update-user-role', async (req, res) => {
+app.post('/update-user-role', requireAdmin, async (req, res) => {
     const { e_mail, yetki } = req.body; // İstemciden gelen e-posta ve yetki bilgilerini al.
     const usersCollection = db.collection('user'); // Veritabanındaki "user" koleksiyonuna eriş.
 
@@ -332,7 +380,7 @@ app.post('/update-user-role', async (req, res) => {
 });
 
 // Kullanıcı silme
-app.delete('/delete-user', async (req, res) => {
+app.delete('/delete-user', requireAdmin, async (req, res) => {
     const { e_mail } = req.body; // İstemciden gelen e-posta bilgisini al.
     const usersCollection = db.collection('user'); // Veritabanındaki "user" koleksiyonuna eriş.
 
@@ -345,7 +393,7 @@ app.delete('/delete-user', async (req, res) => {
     }
 });
 
-app.post('/add-yazar', upload.single('yazarResmi'), async (req, res) => {
+app.post('/add-yazar', requireAdmin, upload.single('yazarResmi'), async (req, res) => {
     const { yazarAdi, dogumYili, yazarAciklama } = req.body;
     const yazarResmi = req.file;
 
@@ -382,7 +430,7 @@ app.get('/get-yazarlar', async (req, res) => {
     }
 });
 
-app.delete('/remove-yazar', async (req, res) => {
+app.delete('/remove-yazar', requireAdmin, async (req, res) => {
     const { yazarAdi } = req.body;
     const yazarCollection = db.collection('yazar');
     try {
@@ -410,7 +458,7 @@ app.get('/get-kitapresimleri', async (req, res) => {
     }
 });
 
-app.post('/update-kitapresim', upload.single('kitapResmi'), async (req, res) => {
+app.post('/update-kitapresim', requireAdmin, upload.single('kitapResmi'), async (req, res) => {
     const { key } = req.body;
     const kitapResmi = req.file;
 
@@ -460,7 +508,7 @@ app.get('/get-yayinevleri', async (req, res) => {
     }
 });
 
-app.post('/add-yayinevi', upload.single('yayineviresmi'), async (req, res) => {
+app.post('/add-yayinevi', requireAdmin, upload.single('yayineviresmi'), async (req, res) => {
     const yeniYayinevi = req.body;
     if (req.file) {
         yeniYayinevi.yayineviresmi = req.file.filename;
@@ -475,7 +523,7 @@ app.post('/add-yayinevi', upload.single('yayineviresmi'), async (req, res) => {
     }
 });
 
-app.put('/update-yayinevi/:id', upload.single('yayineviresmi'), async (req, res) => {
+app.put('/update-yayinevi/:id', requireAdmin, upload.single('yayineviresmi'), async (req, res) => {
     const yayineviId = req.params.id;
     const updatedYayinevi = req.body;
     if (req.file) {
@@ -491,7 +539,7 @@ app.put('/update-yayinevi/:id', upload.single('yayineviresmi'), async (req, res)
     }
 });
 
-app.delete('/delete-yayinevi/:id', async (req, res) => {
+app.delete('/delete-yayinevi/:id', requireAdmin, async (req, res) => {
     const yayineviId = req.params.id;
     try {
         const yayineviCollection = db.collection('yayinevi');
@@ -514,7 +562,7 @@ app.get('/get-kitaplar', async (req, res) => {
     }
 });
 
-app.post('/add-kitap', upload.single('kitapresmi'), async (req, res) => {
+app.post('/add-kitap', requireAdmin, upload.single('kitapresmi'), async (req, res) => {
     const yeniKitap = req.body;
     if (req.file) {
         yeniKitap.kitapresmi = req.file.filename;
@@ -529,7 +577,7 @@ app.post('/add-kitap', upload.single('kitapresmi'), async (req, res) => {
     }
 });
 
-app.delete('/delete-kitap/:id', async (req, res) => {
+app.delete('/delete-kitap/:id', requireAdmin, async (req, res) => {
     const kitapId = req.params.id;
     try {
         const kitapCollection = db.collection('kitaplar');
@@ -541,8 +589,18 @@ app.delete('/delete-kitap/:id', async (req, res) => {
     }
 });
 
-// Sunucuyu localhost:3000 üzerinde başlat
-app.listen(3000, () => {
-    console.log('Sunucu http://localhost:3000 üzerinde çalışıyor.'); 
-    // Başlatıldığında konsola bilgi yazdır.
-});
+async function startServer() {
+    try {
+        await client.connect();
+        db = client.db('herKitap'); // MongoDB'ye bağlan ve veritabanını herKitap olarak ayarla.
+        app.listen(3000, () => {
+            console.log('Sunucu http://localhost:3000 üzerinde çalışıyor.');
+            // Başlatıldığında konsola bilgi yazdır.
+        });
+    } catch (error) {
+        console.error('MongoDB bağlantısı kurulamadı, sunucu başlatılamadı:', error);
+        process.exit(1);
+    }
+}
+
+startServer();
