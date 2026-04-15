@@ -1,12 +1,12 @@
 .slider-container {
- position: relative;
- width: 100%; /* Slayt genişliği */
- margin: auto; /* Ortala */
- overflow: hidden; /* Taşan görselleri gizle */
- border: 1px solid #ccc;
- border-radius: 8px;
- box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
- }
+position: relative;
+width: 100%; /* Slayt genişliği */
+margin: auto; /* Ortala */
+overflow: hidden; /* Taşan görselleri gizle */
+border: 1px solid #ccc;
+border-radius: 8px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
  
  .slider {
  display: flex; /* Görselleri yatay hizala */
@@ -17,16 +17,29 @@
  width: 100%; /* Görsellerin genişliği */
  flex-shrink: 0; /* Görseller aynı genişlikte kalsın */
  }
- button.prev {
+.slider-container button {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+z-index: 2;
+background-color: rgba(255, 255, 255, 0.9);
+border: 1px solid #bbb;
+color: #222;
+padding: 8px 12px;
+border-radius: 6px;
+cursor: pointer;
+}
+
+.slider-container button.prev {
  left: 10px; 
  }
  
- button.next {
+.slider-container button.next {
  right: 10px; 
  }
  
- button:hover {
- background-color: rgba(0, 0, 0, 0.8);
+.slider-container button:hover {
+background-color: rgba(255, 255, 255, 1);
  }
 
  

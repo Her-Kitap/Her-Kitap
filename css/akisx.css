@@ -3,7 +3,7 @@
     display: flex;
     align-items: flex-start;
     gap: 20px; /* Kitap görseli ve açıklaması arasında boşluk */
-    margin-bottom: 10px; /* Alt boşluk */
+    margin-bottom: 25px; /* Alt boşluk */
 }
 
 /* Kitap görselinin stili */

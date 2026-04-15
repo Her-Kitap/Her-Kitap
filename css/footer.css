@@ -4,7 +4,6 @@ footer {
     color: white; /* Alt bilgi alanı metin rengi */
     text-align: center; /* Metni ortala */
     padding: 6px 0; /* Üst ve alt boşluk */
-    position: fixed; /* Sayfada sabit kalır */
     width: 100%; /* Tam genişlik */
     bottom: 0; /* Sayfanın altına yapıştır */
     box-shadow: 0 -2px 5px rgba(0,0,0,0.1); /* Üst gölgelendirme */

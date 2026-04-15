@@ -1,13 +1,3 @@
-/* Haftanın sözü kutusu için stil */
-.rightMenu {
-    background-color: #fff; /* Sütun arka plan rengi */
-    padding: 20px; /* İç boşluk */
-    border: 1px solid #ccc; /* Kenar çizgisi */
-    border-radius: 4px; /* Kenar yuvarlama */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Gölgelendirme */
- }
- 
-
  .right-container {
    position: relative; /* Sticky pozisyon için referans oluşturur */
    position: sticky; /* Sayfada kaydırıldığında sabit kalır */
@@ -17,7 +7,7 @@
 
  .quote {
     background-color: #fff; /* Alıntı arka plan rengi */
-    padding: 10px; /* İç boşluk */
+    padding: 20px; /* İç boşluk */
     border: 1px solid #ccc; /* Kenar çizgisi */
     border-radius: 4px; /* Kenar yuvarlama */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Gölgelendirme */
@@ -25,9 +15,7 @@
  }
  /* Konular bölümü için stil */
  .topics {
-    max-height: 500px; /* Maksimum yükseklik */
-    overflow-y: scroll; /* Dikey kaydırma çubuğu göster */
-    padding: 10px; /* İç boşluk */
+    padding: 20px 20px 5px; /* İç boşluk */
     background-color: #f9f9f9; /* Konular arka plan rengi */
     border: 1px solid #ddd; /* Kenar çizgisi */
     border-radius: 4px; /* Kenar yuvarlama */

@@ -9,7 +9,7 @@
 
        /* Kartlar */
        .book-card {
-           
+           cursor: pointer;
            border-radius: 8px; /* Kenarlarını 8px yuvarlatır */
            background-color: #f4f4f4; /* Kitap kutusunun arka plan rengini açık gri yapar */
            padding: 10px; /* Kartın etrafına boşluk bırakır */

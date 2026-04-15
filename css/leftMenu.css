@@ -9,7 +9,6 @@
  }
  
  .left-container{
-   position: sticky; /* Sayfada kaydırıldığında sabit kalır */
    top: 8px; /* Üstten 8px mesafe */
    align-self: start; /* Üstten hizala */
    }
@@ -40,7 +39,6 @@
  }
  
  .leftMenu ul li a:hover {
-    text-decoration: underline; /* Üzerine gelince altını çizer */
     color: #007bff; /* Üzerine gelince metin rengi değişir */
  }
 

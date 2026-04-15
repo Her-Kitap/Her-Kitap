@@ -1,5 +1,8 @@
       /* Header stil ayarları */
       header {
+        display: flex; /* Flexbox kullanımı */
+        justify-content: center; /* Yatay ortalama */
+        align-items: center; /* Dikey ortalama */
         background-color: #333; /* Üst bilgi alanı arka plan rengi */
         color: #fff; /* Üst bilgi alanı metin rengi */
         text-align: center; /* Metni ortala */
@@ -9,7 +12,8 @@
      }
      
      .logo {
-     max-width: 40px; /* Logo genişliği */
+     max-width: 45px; /* Logo genişliği */
+     max-height: 45px; /* Logo yüksekliği */
      margin-right: 15px; /* Logo ile başlık metni arasında boşluk */
       height: auto; /* Yüksekliği otomatik olarak ayarla */
      }
