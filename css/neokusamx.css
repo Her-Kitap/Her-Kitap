@@ -1,43 +1,70 @@
 .book-grid {
-   display: grid; /* Grid düzenini aktif eder */
-   grid-template-columns: repeat(3, 1fr); /* 3 sütunlu bir grid yapısı oluşturur, her sütun eşit genişlikte olacak */
-   gap: 10px; /* Grid öğeleri arasındaki boşluğu 10px yapar */
-   margin-top: 10px; /* Üstten 10px boşluk ekler */
+   display: grid;
+   grid-template-columns: repeat(3, minmax(0, 1fr));
+   gap: 12px;
+   margin-top: 14px;
 }
 /* Kartlar */
 .book-card {
-           
-   border-radius: 8px; /* Kenarlarını 8px yuvarlatır */
-   background-color: #f4f4f4; /* Kitap kutusunun arka plan rengini açık gri yapar */
-   padding: 10px; /* Kartın etrafına boşluk bırakır */
-   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti ekler */
-   text-align: center; /* İçeriği ortalar */
+   cursor: pointer;
+   overflow: hidden;
+   border-radius: 14px;
+   background-color: #f8fafc;
+   border: 1px solid #e2e8f0;
+   box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+   text-align: center;
+   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.book-card img {
-   border-radius: 5px; /* Görselin kenarlarını 5px yuvarlatır */
-
+.book-card > img,
+.book-card-media {
+   width: 100%;
+   display: block;
+   height: 250px;
+   object-fit: fill;
 }
 
-.book-card h3 {
-   font-size: 18px; /* Başlık font boyutunu 18px yapar */
-   color: #333; /* Başlık metnini koyu gri yapar */
-   margin: 15px 0 10px; /* Başlık etrafında boşluk bırakır */
+.book-card-body {
+   padding: 14px 14px 20px;
+   text-align: center;
 }
 
-.book-card p {
-   color: #777; /* Kitap açıklamasını gri yapar */
-   font-size: 14px; /* Yazı font boyutunu 14px yapar */
+.book-card-body h3 {
+   font-size: 18px;
+   color: #333;
+   margin: 0 0 8px;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 2;
+   line-clamp: 2;
+   overflow: hidden;
+   word-break: break-word;
+   line-height: 1.3;
+}
+
+.book-card-body p {
+   color: #777;
+   font-size: 14px;
+   margin: 0;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 8;
+   line-clamp: 8;
+   overflow: hidden;
+   word-break: break-word;
+   line-height: 1.45;
 }
 
 .book-card:hover {
-transform: scale(1.05); /* Kutu üzerine gelindiğinde %5 oranında büyür (hover efekti) */
+transform: translateY(-4px);
+box-shadow: 0 16px 30px rgba(15, 23, 42, 0.12);
 }
 
 
 /* Diğer bölümler için genel stil ayarları */
 .section {
-   margin-bottom: 40px; /* Bölüm arasına boşluk bırakır */
+  padding: 20px;
+  margin-bottom: 30px; /* Bölüm arasına boşluk bırakır */
 }
 
 
@@ -45,8 +72,8 @@ transform: scale(1.05); /* Kutu üzerine gelindiğinde %5 oranında büyür (hov
 #category {
    padding: 10px 15px;
    font-size: 16px;
-   border-radius: 6px;
-   border: 2px solid #007bff;
+   border-radius: 10px;
+   border: 1px solid #cbd5e1;
    background-color: white;
    color: #333;
    cursor: pointer;
@@ -55,12 +82,12 @@ transform: scale(1.05); /* Kutu üzerine gelindiğinde %5 oranında büyür (hov
 }
 
 #category:hover {
-   border-color: #0056b3;
+   border-color: #4f46e5;
 }
 
 #category:focus {
-   border-color: #004080;
-   box-shadow: 0 0 5px rgba(0, 91, 187, 0.5);
+   border-color: #4f46e5;
+   box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.18);
 }
 
 /* Rastgele Kitap Butonu */
@@ -68,20 +95,39 @@ transform: scale(1.05); /* Kutu üzerine gelindiğinde %5 oranında büyür (hov
    padding: 10px 15px;
    font-size: 16px;
    font-weight: bold;
-   border-radius: 6px;
+   border-radius: 10px;
    border: none;
-   background-color: #007bff;
+   background: linear-gradient(135deg, #4f46e5, #6366f1);
    color: white;
    cursor: pointer;
    transition: all 0.3s ease;
 }
 
 .random-btn:hover {
-   background-color: #0056b3;
-   transform: scale(1.05);
+   background: linear-gradient(135deg, #4338ca, #4f46e5);
+   transform: translateY(-1px);
 }
 
 .random-btn:active {
-   background-color: #003d80;
+   background-color: #4338ca;
    transform: scale(0.98);
+}
+
+.filter-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1100px) {
+  .book-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .book-grid {
+    grid-template-columns: 1fr;
+  }
 }

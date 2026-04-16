@@ -1,43 +1,50 @@
-
-
-
-       /* Kitaplar,Yazarlar, Yorumlar için ızgara düzeni */
-       .book-grid {
-           display: grid; /* Grid düzeni kullanır */
-           grid-template-columns: repeat(2, 1fr); /* 4 sütunlu bir grid düzeni oluşturur */
-           gap: 5px; /* Hücreler arasına 5px boşluk bırakır */
-       }
+      /* Kitaplar,Yazarlar, Yorumlar için ızgara düzeni */
+      .book-grid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 14px;
+      }
 
        /* Kartlar */
-       .book-card {
-           background-color: #fff; /* kartların arka planını beyaz yapar */
-           padding: 10px; /* Kartın etrafına boşluk bırakır */
-           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti ekler */
-           text-align: center; /* İçeriği ortalar */
+      .book-card {
+          background-color: #fff;
+          overflow: hidden;
+          border: 1px solid #e5e7eb;
+          border-radius: 14px;
+          box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+          text-align: center;
+      }
+
+       .book-card > img,
+       .book-card-media {
+       width: 100%;
+       display: block;
+       height: 250px;
+       object-fit: fill;
        }
 
-       .book-card img {
-        width: 390px;
-        height: 270px;
-        object-fit: cover; /* Resmi kırpmadan sığdır */
-        border-radius: 8px; /* Köşeleri yuvarlatmak isterseniz */
-        margin-bottom: 5px; /* Resim ve tablo arasında boşluk */
+       .book-card-body {
+       padding: 14px 14px 20px;
        }
 
-       .book-card h3 {
-           font-size: 18px; /* Başlık font boyutunu 18px yapar */
-           color: #333; /* Başlık metnini koyu gri yapar */
-           margin: 15px 0 10px; /* Başlık etrafında boşluk bırakır */
+       .book-card-body .company-table {
+       margin: 0;
+       table-layout: fixed;
+       width: 100%;
        }
 
-       .book-card p {
-           color: #777; /* Kitap açıklamasını gri yapar */
-           font-size: 14px; /* Yazı font boyutunu 14px yapar */
+       .book-card-body .company-table td {
+       overflow: hidden;
+       text-overflow: ellipsis;
+       white-space: nowrap;
+       font-size: 0.82rem;
+       max-width: 0;
        }
 
        /* Diğer bölümler için genel stil ayarları */
        .section {
-           margin-bottom: 40px; /* Bölüm arasına boşluk bırakır */
+        padding: 20px;
+        margin-bottom: 30px; /* Bölüm arasına boşluk bırakır */
        }
 
       /* Tabloyu genel olarak stilize etmek için */
@@ -45,8 +52,8 @@
     width: 100%; /* Tablo genişliğini yüzde 100 yaparak tam ekranı kaplamasını sağlıyoruz */
     border-collapse: collapse; /* Kenar çizgilerinin birleşmesini sağlıyoruz */
     background-color: #fff; /* Tablo arka plan rengini beyaz yapıyoruz */
-    border: 1px solid #ccc; /* Tablo etrafına açık gri renkli bir kenarlık ekliyoruz */
-    border-radius: 4px; /* Tablo köşelerini yuvarlatıyoruz */
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Tabloya hafif bir gölge efekti ekliyoruz */
  }
  
@@ -62,6 +69,7 @@
  .company-table td {
     padding: 10px; /* Hücrelere 10px iç boşluk ekliyoruz */
     border-bottom: 1px solid #ddd; /* Alt kısıma çizgi ekliyoruz */
+    text-align: left;
  }
  
  /* Bağlantı stilini ayarlıyoruz (Ziyaret Et bağlantısı) */
@@ -74,5 +82,11 @@
  /* Bağlantı üzerine gelindiğinde renk değişimini sağlıyoruz */
  .company-table a:hover {
     color: #0056b3; /* Bağlantının rengini daha koyu mavi yapıyoruz */
+ }
+
+ @media (max-width: 980px) {
+    .book-grid {
+        grid-template-columns: 1fr;
+    }
  }
  

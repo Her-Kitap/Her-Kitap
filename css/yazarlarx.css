@@ -8,8 +8,16 @@
 }
 
 .yazar-list ul li {
-   padding: 8px 0; /* Üst ve alt boşluk */
-   border-bottom: 1px solid #ccc; /* Alt kenar çizgisi */
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  background: #f8fafc;
+}
+
+.section {
+  padding: 20px;
+  margin-bottom: 30px; /* Bölüm arasına boşluk bırakır */
 }
 
 /* .alphabet-nav: Alfabe navigasyonunu stilize eder */
@@ -24,15 +32,16 @@
 .alphabet-nav a {
   text-decoration: none; /* Bağlantıların altını çizmeyi kaldırır */
   padding: 5px 10px; /* Bağlantılara 5px üst ve alt, 10px sağ ve sol iç boşluk ekler */
-  border: 1px solid #333; /* Bağlantılara 1px kalınlığında koyu gri renkli bir kenarlık ekler */
-  border-radius: 4px; /* Bağlantıların köşelerini yuvarlatır */
-  color: #333; /* Bağlantıların metin rengini koyu gri yapar */
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  color: #374151;
+  font-weight: 600;
   transition: background 0.3s; /* Arka plan rengindeki değişimi 0.3 saniyede yumuşak bir şekilde yapar */
 }
 
 /* .alphabet-nav a:hover: Bağlantıların üzerine gelindiğinde değişen stil */
 .alphabet-nav a:hover {
-  background: #333; /* Bağlantı üzerine gelindiğinde arka planı koyu gri yapar */
+  background: #4f46e5;
   color: white; /* Bağlantının rengini beyaz yapar */
 } 
 

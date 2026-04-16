@@ -2,16 +2,23 @@
 .book-review {
     display: flex;
     align-items: flex-start;
-    gap: 20px; /* Kitap görseli ve açıklaması arasında boşluk */
-    margin-bottom: 25px; /* Alt boşluk */
+    gap: 20px;
+    margin-bottom: 22px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    box-shadow: 0 12px 25px rgba(15, 23, 42, 0.08);
+    padding: 16px;
+    margin: 15px;
 }
 
 /* Kitap görselinin stili */
 .book-review img {
-    width: 150px; /* Görselin genişliği */
-    height: auto; /* Yüksekliğini otomatik olarak ayarla */
-    border-radius: 4px; /* Kenarları yuvarla */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* sol sağ ve yukarı gölgesiz hafif gölge efekti */
+    width: 170px;
+    height: 240px;
+    object-fit: fill;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.2);
 }
 
 /* Kitap başlığının stili */
@@ -23,9 +30,9 @@
 
 /* Kitap açıklamaları arasındaki stil */
 .book-details p {
-    width: 95vh; 
-    margin: 10px 0; /* Paragraflar arasındaki boşluk */
-    line-height: 1.6; /* Satır yüksekliği */
+    width: auto;
+    margin: 8px 0;
+    line-height: 1.65;
 }
 
 /* Yorum alanının üst boşluğu */
@@ -35,17 +42,29 @@
 
 /* Yorum kutusunun stilini ayarlama */
 .comments textarea {
-    width: 98%; /* Kutu genişliğini tam yap */
-    padding: 4px; /* İçerik boşluğu */
-    margin-bottom: 4px; /* Kutu altındaki boşluk */
-    border: 1px solid #ccc; /* Sınır rengi */
-    border-radius: 4px; /* Yuvarlak köşeler */
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 8px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
 }
 
 /* Yorumların stilini ayarlama */
 .comments .comment {
-    background: #f9f9f9; /* Yorumların arka plan rengi */
-    padding: 4px; /* İçerik boşluğu */
-    margin-bottom: 4px; /* Yorumlar arasındaki boşluk */
-    border-left: 4px solid #007BFF; /* Yorumun sol tarafında mavi renkli çizgi */
+    background: #f8fafc;
+    padding: 8px 10px;
+    margin-bottom: 8px;
+    border-left: 4px solid #4f46e5;
+    border-radius: 8px;
+}
+
+@media (max-width: 900px) {
+    .book-review {
+        flex-direction: column;
+    }
+
+    .book-review img {
+        width: 100%;
+        height: 300px;
+    }
 }

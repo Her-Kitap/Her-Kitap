@@ -1,166 +1,603 @@
-/* Genel Admin Paneli Stilleri */
+/* Admin — site paleti (style.css :root) ile uyumlu */
+
+body.admin-page .section {
+  padding-top: 8px;
+}
+
 .admin-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
- }
-
- .admin-section {
-    flex: 1 1 calc(50% - 40px);
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
- }
-
- .admin-section h2 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 5px;
- }
-
- .admin-section ul {
-    list-style-type: none;
-    padding: 0;
- }
-
- .admin-section ul li {
-    margin: 10px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
- }
-
- .admin-section input, .admin-section button, .admin-section textarea, .admin-section select {
-    padding: 10px;
-    margin: 5px 0;
-    width: 100%;
-    box-sizing: border-box;
- }
-
- .admin-section button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    border-radius: 4px;
- }
-
- /* Tablonun genişliğini artır ve öğeleri ortala */
- #users-table {
-    width: 100%; /* Tablonun genişliğini %100 yap */
-    border-collapse: collapse; /* Kenarlıkları birleştir */
-    margin: 20px 0; /* Üst ve alt boşluk ekle */
- }
-
- #users-table th, #users-table td {
-    padding: 10px; /* Hücrelere iç boşluk ekle */
-    text-align: center; /* Metni ortala */
-    border: 1px solid #ddd; /* Hücre kenarlıkları */
- }
-
- #users-table th {
-    background-color: #f4f4f4; /* Başlık hücreleri için arka plan rengi */
-    font-weight: bold; /* Başlık hücrelerini kalın yap */
- }
-
- #users-table tr:nth-child(even) {
-    background-color: #f9f9f9; /* Çift satırlar için arka plan rengi */
- }
-
- #users-table tr:hover {
-    background-color: #f1f1f1; /* Üzerine gelindiğinde satır rengi */
- }
-
- /* Güncelleme butonları için stil */
- .green {
-    background-color: #007bff; /* Varsayılan mavi renk */
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    border-radius: 4px;
- }
-
- .green:hover {
-    background-color: #28a745; /* Üzerine gelindiğinde yeşil renk */
- }
-
- /* Silme butonları için stil */
- .red {
-    background-color: #dc3545; /* Varsayılan kırmızı renk */
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    border-radius: 4px;
- }
-
- .red:hover {
-    background-color: #c82333; /* Üzerine gelindiğinde daha koyu kırmızı renk */
- }
-
- .kitap-resim {
-    width: 200px;
-    height: 200px;
-    object-fit: cover; /* Resmi kırpmadan sığdır */
-    margin-bottom: 10px; /* Resim ve buton arasında boşluk */
- }
-
- .kitap-resim-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px; /* Her resim bloğu arasında boşluk */
- }
-
- #kitap-resimleri-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 20px; /* Gruplar arasında boşluk */
- }
-
- .kitap-resim-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 250px; /* Her bir grubun genişliği */
- }
-
- .kitap-resim-input {
-    margin-bottom: 10px; /* Resim değiştirme butonu ve güncelleme butonu arasında boşluk */
- }
-
- .update-kitap-button {
-    width: 100px; /* Buton genişliği */
- }
-
- .kitap-card {
- width: 230px; /* Kart genişliği */
- margin: 10px; /* Kartlar arasında boşluk */
- border: 1px solid #ccc; /* Kart kenarlığı */
- border-radius: 8px; /* Köşeleri yuvarlat */
- box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
- overflow: hidden; /* İçerik taşmasını önle */
- display: flex;
- flex-direction: column;
- align-items: center;
- text-align: center;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  /* Üst satırda Hakkımızda + İletişim aynı yükseklikte; textarea esnek alanı doldurur */
+  align-items: stretch;
 }
 
-.kitap-card img {
- width: 100px;
- height: 100px;
- object-fit: cover;
- margin-bottom: 10px;
+/* Hakkımızda + İletişim yan yana; Yazar / Kitap / tablolar tam genişlikte tek satır */
+.admin-section--full {
+  grid-column: 1 / -1;
 }
 
+.admin-section {
+  min-width: 0;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.admin-section:hover {
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.1);
+}
+
+/* Hakkımızda: metin alanı, yan sütundaki İletişim kartı ile aynı blok yüksekliğinde */
+.admin-section--about,
+.admin-section--contact {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
+}
+
+.admin-section--about #hakkimizda {
+  flex: 1 1 0;
+  min-height: 0;
+  width: 100%;
+  margin: 5px 0;
+  resize: none;
+  overflow-y: auto;
+  line-height: 1.45;
+}
+
+.admin-section--about > .green {
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+.admin-section--contact > .green {
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+.admin-section h2 {
+  font-size: 1.15rem;
+  margin: 0 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e2e8f0;
+  color: #0f172a;
+}
+
+.admin-section h3 {
+  font-size: 1rem;
+  margin: 18px 0 10px;
+  color: #334155;
+  font-weight: 600;
+}
+
+.admin-section > div + h3,
+.admin-section h3:first-of-type {
+  margin-top: 0;
+}
+
+.admin-section ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.admin-section ul li {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-section input,
+.admin-section textarea,
+.admin-section select {
+  padding: 10px 12px;
+  margin: 5px 0;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  background: var(--surface-soft);
+  font: inherit;
+  color: var(--text);
+}
+
+.admin-section input:focus,
+.admin-section textarea:focus,
+.admin-section select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+}
+
+/* Dosya seç — tarayıcı varsayılanı yerine site butonu */
+.admin-section input[type="file"],
+.kitap-resim-input[type="file"] {
+  padding: 12px 14px;
+  cursor: pointer;
+  border-style: dashed;
+  border-color: rgba(79, 70, 229, 0.35);
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.admin-section input[type="file"]:focus,
+.kitap-resim-input[type="file"]:focus {
+  border-color: var(--primary);
+  border-style: solid;
+}
+
+.admin-section input[type="file"]::-webkit-file-upload-button,
+.kitap-resim-input::-webkit-file-upload-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-right: 14px;
+  margin-bottom: 0;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--primary), #6366f1);
+  color: #fff;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.28);
+  transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.admin-section input[type="file"]::-webkit-file-upload-button:hover,
+.kitap-resim-input::-webkit-file-upload-button:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.35);
+}
+
+.admin-section input[type="file"]::file-selector-button,
+.kitap-resim-input::file-selector-button {
+  margin-right: 14px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--primary), #6366f1);
+  color: #fff;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.28);
+  transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.admin-section input[type="file"]::file-selector-button:hover,
+.kitap-resim-input::file-selector-button:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.35);
+}
+
+.admin-section button {
+  padding: 10px 16px;
+  margin: 6px 0;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface-soft);
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.admin-section button:hover {
+  transform: translateY(-1px);
+}
+
+.admin-section button.green,
+.admin-section button.red {
+  border: none;
+  color: #fff;
+}
+
+.admin-section button.green {
+  background: linear-gradient(135deg, var(--primary), #6366f1);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.28);
+}
+
+.admin-section button.green:hover {
+  background: linear-gradient(135deg, var(--primary-strong), var(--primary));
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.35);
+}
+
+.admin-section button.red {
+  background: linear-gradient(135deg, #ef4444, #f87171);
+  box-shadow: 0 6px 16px rgba(239, 68, 68, 0.25);
+}
+
+.admin-section button.red:hover {
+  background: linear-gradient(135deg, #dc2626, #ef4444);
+}
+
+.btn-secondary-outline {
+  background: transparent !important;
+  color: var(--primary) !important;
+  border: 2px solid rgba(79, 70, 229, 0.45) !important;
+  box-shadow: none !important;
+}
+
+.btn-secondary-outline:hover {
+  background: rgba(79, 70, 229, 0.08) !important;
+  border-color: var(--primary) !important;
+}
+
+/* Tablo */
+#users-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 12px 0 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  font-size: 0.92rem;
+}
+
+#users-table th,
+#users-table td {
+  padding: 12px 10px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+#users-table th {
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  font-weight: 700;
+  color: #334155;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+#users-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+#users-table tbody tr:nth-child(even) {
+  background-color: #fafbfc;
+}
+
+#users-table tbody tr:hover {
+  background-color: #f1f5f9;
+}
+
+#users-table .user-role-input {
+  width: 100%;
+  max-width: 140px;
+  margin: 0 auto;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  text-align: center;
+  font: inherit;
+}
+
+#users-table td:last-child {
+  text-align: center;
+  white-space: normal;
+}
+
+#users-table .update-role-button,
+#users-table .delete-user-button {
+  display: inline-block;
+  width: auto;
+  min-width: 88px;
+  margin: 4px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  vertical-align: middle;
+}
+
+#users-table .update-role-button {
+  background: linear-gradient(135deg, var(--primary), #6366f1);
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.22);
+}
+
+#users-table .delete-user-button {
+  background: linear-gradient(135deg, #ef4444, #f87171);
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+}
+
+/* Genel yardımcı buton sınıfları (HTML + JS) */
+.green {
+  background: linear-gradient(135deg, var(--primary), #6366f1);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.green:hover {
+  background: linear-gradient(135deg, var(--primary-strong), var(--primary));
+}
+
+.red {
+  background: linear-gradient(135deg, #ef4444, #f87171);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.red:hover {
+  background: linear-gradient(135deg, #dc2626, #ef4444);
+}
+
+/* Kitap resimleri */
+#kitap-resimleri-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.kitap-resim-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px;
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+}
+
+.kitap-resim {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: fill;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  border: 1px solid var(--border);
+}
+
+.kitap-resim-input {
+  margin-bottom: 10px;
+  font-size: 0.8rem;
+  width: 100%;
+  align-self: stretch;
+}
+
+.kitap-resim-container .update-kitap-button {
+  width: 100%;
+  max-width: 200px;
+  margin-top: 4px;
+}
+
+/* Kitap kartları (liste) — satırda eşit yükseklik, sabit kapak, altta hizalı Sil */
 #kitap-container {
- display: flex;
- flex-wrap: wrap; /* Kartların yan yana dizilmesini sağlar */
- justify-content: center; /* Kartları ortalar */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+  align-items: stretch;
+}
+
+.kitap-card {
+  margin: 0;
+  min-height: 0;
+  height: 100%;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.07);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: left;
+  background: var(--surface);
+}
+
+.kitap-card-media {
+  flex-shrink: 0;
+  height: 200px;
+  background: #e2e8f0;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Kapak üstte; başlık ve metin altta */
+.kitap-card h3.kitap-card-title {
+  margin: 0;
+  padding: 12px 14px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #0f172a;
+  border-bottom: 1px solid #f1f5f9;
+  line-height: 1.45;
+  min-height: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+.kitap-card-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+}
+
+.kitap-card-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 14px 14px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.kitap-card-field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.kitap-card-field--desc {
+  min-height: 0;
+}
+
+.kitap-card-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748b;
+  line-height: 1.3;
+}
+
+.kitap-card-value {
+  display: block;
+  width: 100%;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #1e293b;
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+.kitap-card-value--clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  overflow: hidden;
+}
+
+.kitap-card .delete-kitap-button {
+  flex-shrink: 0;
+  margin-top: auto;
+  margin-left: 14px;
+  margin-right: 14px;
+  margin-bottom: 14px;
+  width: auto;
+  align-self: stretch;
+}
+
+/* Yayınevi kartları */
+#yayinevi-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.yayinevi-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 10px;
+  padding: 16px;
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+}
+
+.yayinevi-card-media {
+  grid-column: 1 / -1;
+  margin: 0 0 12px;
+  height: 140px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #e2e8f0;
+}
+
+.yayinevi-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+}
+
+.yayinevi-card-media--empty {
+  background: linear-gradient(135deg, #e2e8f0, #f1f5f9);
+  border: 1px dashed #cbd5e1;
+}
+
+.yayinevi-card h3 {
+  grid-column: 1 / -1;
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+  color: #0f172a;
+}
+
+.yayinevi-card p {
+  grid-column: 1 / -1;
+  margin: 4px 0;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.yayinevi-card .edit-yayinevi-button,
+.yayinevi-card .delete-yayinevi-button {
+  margin-top: 12px;
+  padding: 8px 12px;
+  font-size: 0.88rem;
+}
+
+.yayinevi-card .edit-yayinevi-button {
+  background: linear-gradient(135deg, var(--primary), #6366f1);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.yayinevi-card .delete-yayinevi-button {
+  background: linear-gradient(135deg, #ef4444, #f87171);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .admin-container {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-section--full {
+    grid-column: auto;
+  }
+
+  .admin-section--about #hakkimizda {
+    min-height: 220px;
+    flex: 1 1 auto;
+  }
+
+  .yayinevi-card {
+    grid-template-columns: 1fr;
+  }
+
+  .yayinevi-card .edit-yayinevi-button,
+  .yayinevi-card .delete-yayinevi-button {
+    grid-column: 1 / -1;
+  }
 }

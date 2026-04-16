@@ -1,43 +1,62 @@
- .right-container {
-   position: relative; /* Sticky pozisyon için referans oluşturur */
-   position: sticky; /* Sayfada kaydırıldığında sabit kalır */
-   top: 8px; /* Üstten 8px mesafe */
-   align-self: start; /* Üstten hizala */
+.right-container {
+  position: sticky;
+  top: 16px;
+  align-self: start;
 }
 
- .quote {
-    background-color: #fff; /* Alıntı arka plan rengi */
-    padding: 20px; /* İç boşluk */
-    border: 1px solid #ccc; /* Kenar çizgisi */
-    border-radius: 4px; /* Kenar yuvarlama */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Gölgelendirme */
-    margin-bottom: 10px; /* Alt boşluk */
- }
- /* Konular bölümü için stil */
- .topics {
-    padding: 20px 20px 5px; /* İç boşluk */
-    background-color: #f9f9f9; /* Konular arka plan rengi */
-    border: 1px solid #ddd; /* Kenar çizgisi */
-    border-radius: 4px; /* Kenar yuvarlama */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Gölgelendirme */
- }
- 
- .topics ul {
-    list-style-type: none; /* Liste işaretlerini kaldır */
-    padding: 0; /* İç boşluğu kaldır */
- }
- 
- .topics ul li {
-    padding: 10px 0; /* Üst ve alt boşluk */
-    border-bottom: 1px solid #eee; /* Alt kenar çizgisi */
- }
- 
- .topics ul li a {
-    text-decoration: none; /* Alt çizgiyi kaldır */
-    color: #333; /* Bağlantı metin rengi */
- }
- 
- .topics ul li a:hover {
-    text-decoration: underline; /* Üzerine gelince altını çizer */
-    color: #007bff; /* Üzerine gelince metin rengi değişir */
- }
+/* Haftanın sözü — hafif lavanta tonu */
+.quote {
+  background: linear-gradient(145deg, var(--surface-quote) 0%, #f0ebff 100%);
+  padding: 20px;
+  border: 1px solid #e9e4f4;
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  margin-bottom: 12px;
+}
+
+.quote h2 {
+  color: #312e81;
+}
+
+.quote p {
+  color: #4338ca;
+}
+
+/* Konular — biraz daha gri-mavi, sözden ayrışır */
+.topics {
+  padding: 20px 20px 6px;
+  background: linear-gradient(180deg, var(--surface-topics) 0%, #e8eef4 100%);
+  border: 1px solid #d1d9e3;
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.07);
+}
+
+.topics h2 {
+  color: #1e293b;
+}
+
+.topics ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.topics ul li {
+  padding: 9px 0;
+  border-bottom: 1px solid #d8dee6;
+}
+
+.topics ul li:last-child {
+  border-bottom: none;
+}
+
+.topics ul li a {
+  font-weight: 600;
+  text-decoration: none;
+  color: #1f2939;
+  transition: color 0.2s ease;
+}
+
+.topics ul li a:hover {
+  text-decoration: underline;
+  color: #4f46e5;
+}

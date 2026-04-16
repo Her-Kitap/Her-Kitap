@@ -50,6 +50,44 @@ function updateIletisim() {
     }
 }
 
+function fetchHakkimizdaAdmin() {
+    const ta = document.getElementById('hakkimizda');
+    if (!ta) return;
+    fetch('/get-hakkimizda')
+        .then((r) => r.json())
+        .then((data) => {
+            if (data.success && data.metin != null) {
+                ta.value = data.metin;
+            }
+        })
+        .catch((err) => console.error('Hakkımızda metni yüklenemedi:', err));
+}
+
+function fetchIletisimAdmin() {
+    const setVal = (id, v) => {
+        const el = document.getElementById(id);
+        if (el && v != null && v !== undefined) el.value = String(v);
+    };
+    fetch('/get-iletisim')
+        .then((r) => r.json())
+        .then((data) => {
+            if (data.success && data.iletisim) {
+                const i = data.iletisim;
+                setVal('email', i.email);
+                setVal('telefon', i.telefon);
+                setVal('instagram', i.instagram);
+                setVal('x', i.x);
+                setVal('facebook', i.facebook);
+            }
+        })
+        .catch((err) => console.error('İletişim bilgileri yüklenemedi:', err));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetchHakkimizdaAdmin();
+    fetchIletisimAdmin();
+});
+
 // Yazarlar verisini tutacak bir dizi
 let yazarlar = [];
 
@@ -389,7 +427,7 @@ function clearKitapInputFields() {
                         div.innerHTML = `
                             <img src="../images/${value}" alt="${key}" class="kitap-resim">
                             <input type="file" data-key="${key}" class="kitap-resim-input">
-                            <button class="update-kitap-button" data-key="${key}" style="width: 100px;">Güncelle</button>
+                            <button type="button" class="update-kitap-button green" data-key="${key}">Güncelle</button>
                         `;
                         kitapResimleriContainer.appendChild(div);
                     }
@@ -452,12 +490,16 @@ function clearKitapInputFields() {
                     data.yayinevleri.forEach(yayinevi => {
                         const div = document.createElement('div');
                         div.classList.add('yayinevi-card');
+                        const resimHtml = yayinevi.yayineviresmi
+                            ? `<div class="yayinevi-card-media"><img class="yayinevi-card-img" src="../images/${yayinevi.yayineviresmi}" alt="${yayinevi.yayineviadi || 'Yayınevi'}"></div>`
+                            : '<div class="yayinevi-card-media yayinevi-card-media--empty" aria-hidden="true"></div>';
                         div.innerHTML = `
+                            ${resimHtml}
                             <h3>${yayinevi.yayineviadi}</h3>
                             <p>Kurucu: ${yayinevi.kurucu}</p>
                             <p>Ülke: ${yayinevi.ulke}</p>
-                            <button class="edit-yayinevi-button" data-id="${yayinevi._id}">Düzenle</button>
-                            <button class="delete-yayinevi-button" data-id="${yayinevi._id}">Sil</button>
+                            <button type="button" class="edit-yayinevi-button" data-id="${yayinevi._id}">Düzenle</button>
+                            <button type="button" class="delete-yayinevi-button" data-id="${yayinevi._id}">Sil</button>
                         `;
                         yayineviContainer.appendChild(div);
                     });
@@ -624,12 +666,25 @@ function clearKitapInputFields() {
                         const div = document.createElement('div');
                         div.classList.add('kitap-card');
                         div.innerHTML = `
-                            <h3>${kitap.adi}</h3>
-                            <img src="../images/${kitap.kitapresmi}" alt="${kitap.adi}" style="width: 200px; height: 200px;">
-                            <p>Yazar: ${kitap.yazari}</p>
-                            <p>Kategori: ${kitap.kategori}</p>
-                            <p>Açıklama: ${kitap.aciklama}</p>
-                            <button class="delete-kitap-button" data-id="${kitap._id}" style="width: 200px; margin-bottom:10px">Sil</button>
+                            <div class="kitap-card-media">
+                                <img class="kitap-card-cover" src="../images/${kitap.kitapresmi}" alt="${kitap.adi}">
+                            </div>
+                            <h3 class="kitap-card-title">${kitap.adi}</h3>
+                            <div class="kitap-card-body">
+                                <div class="kitap-card-field">
+                                    <span class="kitap-card-label">Yazar</span>
+                                    <span class="kitap-card-value">${kitap.yazari}</span>
+                                </div>
+                                <div class="kitap-card-field">
+                                    <span class="kitap-card-label">Kategori</span>
+                                    <span class="kitap-card-value">${kitap.kategori}</span>
+                                </div>
+                                <div class="kitap-card-field kitap-card-field--desc">
+                                    <span class="kitap-card-label">Açıklama</span>
+                                    <span class="kitap-card-value kitap-card-value--clamp">${kitap.aciklama}</span>
+                                </div>
+                            </div>
+                            <button type="button" class="delete-kitap-button red" data-id="${kitap._id}">Sil</button>
                         `;
                         kitapContainer.appendChild(div);
                     });

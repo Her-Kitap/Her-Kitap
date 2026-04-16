@@ -1,0 +1,19 @@
+/* Hakkimizda sayfasi tasarimi */
+.section {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+  padding: 24px;
+  line-height: 1.8;
+  color: #374151;
+}
+
+.section h3 {
+  margin: 18px 0 8px;
+  color: #111827;
+}
+
+.section b {
+  color: #1f2937;
+}

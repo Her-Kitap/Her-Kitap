@@ -2,9 +2,9 @@
   position: relative;
    width: 100%; /* Slayt genişliği */
    overflow: hidden; /* Taşan görselleri gizle */
-   border: 1px solid #ccc;
-   border-radius: 8px;
-   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+   border: 1px solid #e5e7eb;
+   border-radius: 14px;
+   box-shadow: 0 16px 28px rgba(15, 23, 42, 0.12);
    }
    
    .slider {
@@ -14,8 +14,8 @@
    
    .slider img {
    width: 100%; /* Görsellerin genişliği */
-   height: 575px;
-   object-fit: fill;
+  height: clamp(280px, 45vw, 605px);
+  object-fit: fill;
    flex-shrink: 0; /* Görseller aynı genişlikte kalsın */
    }
   .slider-container button {
@@ -29,6 +29,7 @@
   padding: 8px 12px;
   border-radius: 6px;
   cursor: pointer;
+  transition: all 0.2s ease;
   }
 
   .slider-container button.prev {
@@ -41,4 +42,5 @@
    
   .slider-container button:hover {
   background-color: rgba(255, 255, 255, 1);
+  transform: translateY(-50%) scale(1.05);
    }

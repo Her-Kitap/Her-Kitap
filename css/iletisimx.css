@@ -1,62 +1,36 @@
-.slider-container {
-position: relative;
-width: 100%; /* Slayt genişliği */
-margin: auto; /* Ortala */
-overflow: hidden; /* Taşan görselleri gizle */
-border: 1px solid #ccc;
-border-radius: 8px;
-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
- 
- .slider {
- display: flex; /* Görselleri yatay hizala */
- transition: transform 0.5s ease; /* Yana kayma animasyonu */
- }
- 
- .slider img {
- width: 100%; /* Görsellerin genişliği */
- flex-shrink: 0; /* Görseller aynı genişlikte kalsın */
- }
-.slider-container button {
-position: absolute;
-top: 50%;
-transform: translateY(-50%);
-z-index: 2;
-background-color: rgba(255, 255, 255, 0.9);
-border: 1px solid #bbb;
-color: #222;
-padding: 8px 12px;
-border-radius: 6px;
-cursor: pointer;
+.section {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+  padding: 24px;
 }
 
-.slider-container button.prev {
- left: 10px; 
- }
- 
-.slider-container button.next {
- right: 10px; 
- }
- 
-.slider-container button:hover {
-background-color: rgba(255, 255, 255, 1);
- }
+.email-info,
+.telefon-info {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  font-weight: 600;
+}
 
- 
- 
- 
- /* Bağlantılara temel stil */
-a {
-    color: #333; 
-   font-size: 16px;
-  
-   text-decoration: none; /* Alt çizgiyi kaldır */
-  
- }
- a i {
-   margin-right: 8px; /* İkon ve yazı arasındaki boşluk */
- }
- a:hover{
-   text-decoration: underline; /* Üzerine gelince altını çizer */
- }
+.section .instagram-link,
+.section .x-link,
+.section .facebook-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #4f46e5;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.section .instagram-link:hover,
+.section .x-link:hover,
+.section .facebook-link:hover {
+  text-decoration: underline;
+}
  

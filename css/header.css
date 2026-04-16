@@ -1,19 +1,22 @@
-      /* Header stil ayarları */
-      header {
-        display: flex; /* Flexbox kullanımı */
-        justify-content: center; /* Yatay ortalama */
-        align-items: center; /* Dikey ortalama */
-        background-color: #333; /* Üst bilgi alanı arka plan rengi */
-        color: #fff; /* Üst bilgi alanı metin rengi */
-        text-align: center; /* Metni ortala */
-        padding: 20px 0; /* Üst ve alt boşluk */
-        font-size: 40px; /* Yazı boyutu */
-        font-weight: bold; /* Yazı kalınlığı */
-     }
-     
-     .logo {
-     max-width: 45px; /* Logo genişliği */
-     max-height: 45px; /* Logo yüksekliği */
-     margin-right: 15px; /* Logo ile başlık metni arasında boşluk */
-      height: auto; /* Yüksekliği otomatik olarak ayarla */
-     }
+/* Header — gövdeye göre biraz daha açık şerit (saf beyaz değil) */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(180deg, var(--surface-header) 0%, #dfe6f0 100%);
+  color: #2e3744;
+  text-align: center;
+  padding: 12px 10px;
+  font-size: clamp(22px, 2.4vw, 32px);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.07);
+}
+
+.logo {
+  width: 55px;
+  height: 38px;
+  margin-right: 2px;
+}

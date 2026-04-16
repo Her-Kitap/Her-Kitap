@@ -19,7 +19,7 @@
 <body>
    
    <header>
-      <img src="../images/logo.jpg" class="logo">
+      <img src="../images/logo.png" class="logo">
       HER KİTAP
    </header>
 
@@ -101,7 +101,7 @@
    <p>&copy; 2024 Her Kitap. Tüm hakları saklıdır.</p>
    <p>Takip edin: 
        <a href="#"><i class="fab fa-facebook"></i> Facebook</a> | 
-       <a href="#"><i class="fab fa-x"></i> X</a> |  
+       <a href="#"><i class="fab fa-twitter"></i> X</a> |  
        <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
    </p>
 </footer>
@@ -118,8 +118,8 @@
                     const div = document.createElement('div');
                     div.classList.add('book-card');
                     div.innerHTML = `
-                        <div class="column">
-                            <h2><img src="../images/${yayinevi.yayineviresmi}" alt="${yayinevi.yayineviadi}"></h2>
+                            <img class="book-card-media" src="../images/${yayinevi.yayineviresmi}" alt="${yayinevi.yayineviadi}">
+                            <div class="book-card-body">
                             <table class="company-table">
                                 <tbody>
                                     <tr>
@@ -160,7 +160,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>
+                            </div>
                     `;
                     bookGrid.appendChild(div);
                 });

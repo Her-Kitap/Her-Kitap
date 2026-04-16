@@ -18,7 +18,7 @@
 <body>
    
   <header>
-    <img src="../images/logo.jpg" class="logo">
+    <img src="../images/logo.png" class="logo">
     HER KİTAP
   </header>
 
@@ -57,8 +57,7 @@
   </div>
 </div>
 
-  <div>
-    
+  <div class="section">
     <h2>Bugün Ne Okuyacağınıza Karar Veremediniz mi?</h2>
 
     <div class="filter-section">
@@ -74,11 +73,9 @@
     <button class="random-btn" onclick="rastgeleKitap()">Yeni Kitap Öner</button>
     </div>
 
-    <div class="section">
       <div class="book-grid">
       <!-- Kitaplar buraya yüklenecek -->
       </div>
-  </div>
 
 </div>
 
@@ -118,7 +115,7 @@
   <p>&copy; 2024 Her Kitap. Tüm hakları saklıdır.</p>
   <p>Takip edin: 
       <a href="#"><i class="fab fa-facebook"></i> Facebook</a> | 
-      <a href="#"><i class="fab fa-x"></i> X</a> |  
+      <a href="#"><i class="fab fa-twitter"></i> X</a> |  
       <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
   </p>
 </footer>
@@ -134,9 +131,11 @@
               const div = document.createElement('div');
               div.classList.add('book-card');
               div.innerHTML = `
-                  <img src="../images/${kitap.kitapresmi}" alt="${kitap.adi}" style="height:280px; width:270px">
-                  <h3>${kitap.adi}</h3>
-                  <p>${kitap.aciklama}</p>
+                  <img class="book-card-media" src="../images/${kitap.kitapresmi}" alt="${kitap.adi}">
+                  <div class="book-card-body">
+                      <h3>${kitap.adi}</h3>
+                      <p>${kitap.aciklama}</p>
+                  </div>
               `;
               bookGrid.appendChild(div);
           });
@@ -162,9 +161,11 @@
                     const div = document.createElement('div');
                     div.classList.add('book-card');
                     div.innerHTML = `
-                        <img src="../images/${kitap.kitapresmi}" alt="${kitap.adi}"style="height:280px; width:270px">
-                        <h3>${kitap.adi}</h3>
-                        <p>${kitap.aciklama}</p>
+                        <img class="book-card-media" src="../images/${kitap.kitapresmi}" alt="${kitap.adi}">
+                        <div class="book-card-body">
+                            <h3>${kitap.adi}</h3>
+                            <p>${kitap.aciklama}</p>
+                        </div>
                     `;
                     bookGrid.appendChild(div);
                 });
@@ -194,9 +195,11 @@ function rastgeleKitap() {
                   const div = document.createElement('div');
                   div.classList.add('book-card');
                   div.innerHTML = `
-                      <img src="../images/${kitap.kitapresmi}" alt="${kitap.adi}" style="height:280px; width:270px">
-                      <h3>${kitap.adi}</h3>
-                      <p>${kitap.aciklama}</p>
+                      <img class="book-card-media" src="../images/${kitap.kitapresmi}" alt="${kitap.adi}">
+                      <div class="book-card-body">
+                          <h3>${kitap.adi}</h3>
+                          <p>${kitap.aciklama}</p>
+                      </div>
                   `;
                   bookGrid.appendChild(div);
               });

@@ -1,29 +1,89 @@
- /* Genel Stil Ayarları */
- body {
-    font-family: Arial, sans-serif; /* Yazı tipi ayarı */
-    margin: 0; /* Varsayılan kenar boşluklarını kaldır */
-    padding: 0; /* Varsayılan iç boşlukları kaldır */
-    background-color: #f0f0f0; /* Arka plan rengi */
-    color: #333; /* Metin rengi */
- }
- 
+:root {
+  /* Sayfa zemini — saf beyaz yerine katmanlı gri-mavi / lavanta tonları */
+  --bg: #d8dee9;
+  --surface: #ffffff;
+  --surface-soft: #f1f5f9;
+  --surface-muted: #eef2f7;
+  --surface-warm: #f7f5f3;
+  --surface-header: #e8edf4;
+  --surface-sidebar: #f4f6fa;
+  --surface-main: #f9fafb;
+  --surface-quote: #faf8ff;
+  --surface-topics: #f3f6f9;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --primary: #4f46e5;
+  --primary-strong: #4338ca;
+  --border: #d1d5db;
+  --border-soft: #e5e7eb;
+  --shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+  --radius: 14px;
+}
 
- 
-  /* Başlıkların stil ayarları */
-   h2 {
-      margin: 0;
-       color: #333; /* Başlık metni koyu gri renk olur */
-       border-bottom: 2px solid #333; /* Başlığın altına gri bir çizgi çeker */
-       padding-bottom: 7px; /* Başlığın altına 10px boşluk bırakır */
-       margin-bottom: 15px; /* Başlık ile sonraki içerik arasında 20px boşluk bırakır */
-   }
+* {
+  box-sizing: border-box;
+}
 
-  
-  /* Üç sütun düzeni için grid yapısı */
- .container {
-    display: grid; /* Grid düzeni kullan */
-    grid-template-columns: 1fr 3fr 1fr; /* 3 sütun düzeni (sol, orta, sağ) */
-    gap: 20px; /* Sütunlar arasındaki boşluk */
-    padding: 15px; /* İç boşluk */
-    align-items: start; /* Sütunları üstten hizala */
- }
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+  background:
+    radial-gradient(ellipse 120% 80% at 0% -10%, rgba(199, 210, 254, 0.65) 0%, transparent 55%),
+    radial-gradient(ellipse 100% 70% at 100% 110%, rgba(233, 213, 255, 0.45) 0%, transparent 50%),
+    radial-gradient(ellipse 80% 50% at 50% 50%, rgba(226, 232, 240, 0.9) 0%, transparent 70%),
+    linear-gradient(168deg, #cfd8e6 0%, #dce3ee 35%, #e8ecf4 100%);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 14px;
+  color: #0f172a;
+}
+
+h2 {
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 8px;
+  font-weight: 700;
+}
+
+p {
+  margin: 0 0 12px;
+  color: #374151;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: minmax(230px, 1fr) minmax(0, 3fr) minmax(230px, 1fr);
+  gap: 20px;
+  padding: 20px;
+  max-width: 1600px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* Orta içerik — tam beyaz yerine hafif soğuk gri yüzey */
+.container > :not(.left-container):not(.right-container) {
+  background: linear-gradient(180deg, var(--surface-main) 0%, var(--surface-muted) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 1180px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .left-container,
+  .right-container {
+    position: static;
+  }
+
+  .container > :not(.left-container):not(.right-container) {
+    order: -1;
+  }
+}

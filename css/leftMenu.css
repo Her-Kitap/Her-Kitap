@@ -1,80 +1,139 @@
-/* Ortak sütun stil ayarları */
+/* Sol menü — header’dan hafif farklı ton (kart derinliği) */
 .leftMenu {
-    padding: 20px; /* İç boşluk */
-    background-color: #333; /* Menü arka plan rengi */
-    color: #fff; /* Menü metin rengi */
-    border: 1px solid #ccc; /* Kenar çizgisi */
-    border-radius: 4px; /* Kenar yuvarlama */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Gölgelendirme */
- }
- 
- .left-container{
-   top: 8px; /* Üstten 8px mesafe */
-   align-self: start; /* Üstten hizala */
-   }
+  padding: 18px;
+  background: linear-gradient(165deg, var(--surface-sidebar) 0%, #e8ecf4 100%);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius, 14px);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
 
- .leftMenu h2 {
-    margin-top: 0; /* Üstten boşluk kaldır */
- }
- 
- .leftMenu ul {
-    list-style-type: none; /* Liste işaretlerini kaldır */
-    padding: 0; /* İç boşluğu kaldır */
- }
- 
- .leftMenu ul li {
-    padding: 10px 0; /* Üst ve alt boşluk */
-    border-bottom: 1px solid #444; /* Alt kenar çizgisi */
- }
- 
- .leftMenu ul li a {
-    text-decoration: none; /* Alt çizgiyi kaldır */
-    color: #fff; /* Bağlantı metin rengi */
-    display: flex; /* Flex düzeni ile ikon ve metni yan yana yerleştir */
-    align-items: center; /* Dikey olarak ortala */
- }
- 
- .leftMenu ul li a i {
-    margin-right: 10px; /* İkon ile metin arasına boşluk ekle */
- }
- 
- .leftMenu ul li a:hover {
-    color: #007bff; /* Üzerine gelince metin rengi değişir */
- }
+.left-container {
+  position: sticky;
+  top: 16px;
+  align-self: start;
+}
 
-     
-   
-    /* Geri dön butonu için stil */
-    .back-button {
-      display: flex; /* Flex düzeni */
-      align-items: center; /* Dikey olarak ortala */
-      cursor: pointer; /* İmleci tıklanabilir hale getir */
-      margin-bottom: 15px; /* Alt boşluk */
-   }
-   
-   .back-button span {
-      margin-left: 8px; /* Sol boşluk */
-   }
-   
-    /* Arama kutusu için stil */
-   .search-container {
-      display: flex; /* Flex düzeni */
-      margin-bottom: 15px; /* Alt boşluk */
-   }
-   
-   .search-container input {
-      flex: 1; /* Genişliğin tamamını kaplar */
-      padding: 10px; /* İç boşluk */
-      border: 1px solid #ccc; /* Kenar çizgisi */
-      border-radius: 4px; /* Kenar yuvarlama */
-      margin-right: 10px; /* Sağ boşluk */
-   }
-   
-   .search-container button {
-      padding: 10px 15px; /* İç boşluk */
-      background-color: #d3d3d3; /* Buton arka plan rengi */
-      color: #333; /* Buton metin rengi */
-      border: none; /* Kenar çizgisini kaldır */
-      border-radius: 4px; /* Kenar yuvarlama */
-      cursor: pointer; /* İmleci tıklanabilir hale getir */
-   }
+.leftMenu h2 {
+  margin-top: 0;
+}
+
+.leftMenu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.leftMenu ul li {
+  padding: 8px 0;
+  border-bottom: 1px solid #d8dee6;
+}
+
+.leftMenu ul li:last-child {
+  border-bottom: none;
+}
+
+.leftMenu ul li a {
+  font-weight: 600;
+  text-decoration: none;
+  color: #1f2939;
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 10px;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.leftMenu ul li a i {
+  margin-right: 10px;
+  color: #5a6270;
+}
+
+.leftMenu ul li a:hover {
+  color: var(--primary, #4f46e5);
+  background: rgba(79, 70, 229, 0.08);
+  transform: translateX(3px);
+}
+
+.leftMenu ul li a:hover i {
+  color: var(--primary, #4f46e5);
+}
+
+/* Geri dön */
+.leftMenu .back-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border, #e5e7eb);
+  background: var(--surface-soft, #f8faff);
+  color: var(--text, #1f2937);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.leftMenu .back-button:hover {
+  background: rgba(79, 70, 229, 0.1);
+  border-color: rgba(79, 70, 229, 0.35);
+  color: var(--primary-strong, #4338ca);
+  transform: translateX(3px);
+}
+
+.leftMenu .back-button span {
+  font-size: 0.94rem;
+  font-weight: 600;
+}
+
+/* Arama */
+.leftMenu .search-container {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.leftMenu .search-container input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--text, #1f2937);
+  font: inherit;
+  font-size: 0.92rem;
+}
+
+.leftMenu .search-container input::placeholder {
+  color: #9ca3af;
+}
+
+.leftMenu .search-container input:focus {
+  outline: none;
+  border-color: rgba(79, 70, 229, 0.45);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+.leftMenu .search-container button {
+  flex-shrink: 0;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  background: #f3f4f6;
+  color: #374151;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.leftMenu .search-container button i {
+  color: #4b5563;
+}
+
+.leftMenu .search-container button:hover {
+  background: #e5e7eb;
+  border-color: #d1d5db;
+  transform: translateY(-1px);
+}

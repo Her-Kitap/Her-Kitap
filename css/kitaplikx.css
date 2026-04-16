@@ -19,14 +19,17 @@
 
 /* Liste Öğeleri (Kitaplar) */
 .book-list ul li {
-   padding: 10px 0; /* Üst ve alt boşluk */
-   border-bottom: 1px solid #ccc; /* Alt kenar çizgisi */
-   margin: 5px 0; /* Liste öğeleri arasına boşluk ekler */
+   padding: 12px;
+   border: 1px solid #e5e7eb;
+   border-radius: 10px;
+   margin: 10px 0;
    line-height: 1.6; /* Satır yüksekliği */
    display: flex; /* Bilgileri yan yana düzenlemek için */
    flex-direction: column; /* Dikey sıralama */
    font-size: 17px; /* Kitap adı boyutu */
    color: #333; /* Kitap adı rengi */
+   background: #f8fafc;
+   box-shadow: 0 8px 16px rgba(15, 23, 42, 0.05);
 }
 
 /* Kitap Adı */
@@ -70,14 +73,20 @@
 .alphabet-nav a {
    text-decoration: none; /* Bağlantıların altını çizmeyi kaldırır */
    padding: 5px 10px; /* İç boşluk */
-   border: 1px solid #333; /* Kenarlık */
-   border-radius: 4px; /* Köşeleri yuvarlat */
-   color: #333; /* Metin rengi */
+   border: 1px solid #cbd5e1;
+   border-radius: 999px;
+   color: #374151;
+   font-weight: 600;
    transition: background 0.3s; /* Geçiş efekti */
 }
 
 /* Alfabe Linklerinin Hover Durumu */
 .alphabet-nav a:hover {
-   background: #333; /* Arka plan rengi */
+   background: #4f46e5; /* Arka plan rengi */
    color: white; /* Metin rengi */
+}
+
+.section {
+   padding: 20px;
+   margin-bottom: 30px; /* Bölüm arasına boşluk bırakır */
 }
