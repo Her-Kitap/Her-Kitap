@@ -2,7 +2,7 @@
 ![Express.js](https://img.shields.io/badge/Express_JS-000000?style=for-the-badge&logo=express&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 
-# 📚 Her Kitap
+# 📚 Her Kitap 
 
 Kitapları, yazarları ve yayınevlerini tek bir çatı altında toplayan sade ve işlevsel bir okuma platformu.
 
