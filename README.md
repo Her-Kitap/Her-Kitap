@@ -1,28 +1,101 @@
-📚 Her Kitap - Kitap ve Yazar Keşif Platformu
+![Node.js](https://img.shields.io/badge/Node_JS-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express_JS-000000?style=for-the-badge&logo=express&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 
-Bu proje, Node.js (Express.js) ve MongoDB kullanılarak geliştirilmiş bir kitap ve yazar keşif platformudur. Kullanıcılar:
-✔️ Popüler kitapları, yazarları ve yayınevlerini keşfedebilir,
-✔️ Kategoriye göre filtreleme yapabilir,
-✔️ Rastgele kitap önerileri alabilir,
-✔️ Kitapları ve yazarları alfabetik olarak görüntüleyebilir.
+# 📚 Her Kitap
 
-🛠 Teknolojiler:
+Kitapları, yazarları ve yayınevlerini tek bir çatı altında toplayan sade ve işlevsel bir okuma platformu.
 
-Backend: Node.js, Express.js, MongoDB
-Frontend: HTML, CSS, JavaScript
-Ekstra: Multer (dosya yükleme), Fetch API (dinamik veri alma)
+Kullanıcılar **"Ne Okusam?"** özelliği ile yeni kitaplar keşfedebilir, detaylı arşivde gezinebilir ve üye olarak kendi kişisel **Kitaplık** alanlarını yönetebilirler.
 
-🔗 Nasıl Çalıştırılır?
+## Ne sunuyor?
 
-git clone https://github.com/Her-Kitap/Her-Kitap.git
-cd web-v-2.1
+**Keşif ve içerik**
+
+- **Ana sayfa:** kitap slaytı, haftanın sözü ve konu başlıkları
+- **Akış** — öne çıkan kitaplar ve yorum alanı
+- **Keşfet** — popüler kitaplar; yazar ve yayınevi vitrinleri
+- **Ne okusam** — kategori veya tüm arşive göre rastgele öneri
+- **Yazarlar** ve **yayınevleri:** biyografi, görseller, kurumsal bilgiler ve listeler
+
+**Üyelik ve kitaplık**
+
+- E-posta ile hızlı kayıt ve güvenli giriş
+- Kitaplığına yeni kitap ekle, favorilerini yönet
+
+**Yönetim (admin)**
+
+- Kitap, yazar ve yayınevi için ekleme, güncelleme ve silme
+- Kullanıcı rolleri ve hesap yönetimi
+- **Hakkımızda**, **İletişim** metinleri ve ana sayfa slayt görsellerinin panel üzerinden güncellenmesi
+
+---
+
+## 🛠️ Teknoloji yığını
+
+| Alan | Teknolojiler |
+| :--- | :--- |
+| **Backend** | Node.js, Express |
+| **Veritabanı** | PostgreSQL |
+| **Güvenlik** | bcrypt, çerez tabanlı oturum |
+| **Diğer** | Multer, dotenv, EJS |
+| **Ön yüz** | Vanilla JavaScript, CSS3, Font Awesome |
+
+---
+
+## 🚀 Kurulum
+
+**1. Depoyu klonlayın**
+
+```bash
+git clone [repo-url]
+cd Her-Kitap
+```
+
+**2. Bağımlılıkları yükleyin**
+
+```bash
 npm install
-cd js
-node server.js
-Uygulamayı açmak için http://localhost:3000 adresine gidin.
+```
 
-📌 Geliştirme Süreci
-Bu proje, kitap keşfi için kullanıcı dostu bir deneyim sunmayı amaçlar. Yazarlar ve kitaplar dinamik olarak yüklenir, filtreleme seçenekleri ile kişiselleştirilebilir.
+**3. Ortam değişkenlerini ayarlayın**
 
-🎯 Katkıda Bulunmak
-Her türlü geri bildirim ve katkı önerisine açığım! Pull request’ler kabul edilir. 🚀
+Proje kökünde `.env` oluşturun (örnek: `.env.example`):
+
+```env
+PGHOST=localhost
+PGPORT=5432
+PGUSER=postgres
+PGPASSWORD=
+PGDATABASE=herkitap
+```
+
+**4. Veritabanını oluşturun ve migration çalıştırın**
+
+PostgreSQL’de boş bir veritabanı oluşturun (ör. `createdb herkitap` veya arayüzden `herkitap` adıyla). `.env` içindeki `PGDATABASE` bu veritabanına işaret etmeli.
+
+```bash
+npm run migrate
+```
+
+Bu komut `migrations/` altındaki `NNN_*.sql` dosyalarını sırayla uygular; işlenen sürümler `schema_migrations` tablosunda tutulur, tekrar çalıştırılmaz.
+
+**5. Uygulamayı başlatın**
+
+```bash
+npm start
+```
+
+Varsayılan adres: **http://localhost:3000** (`node js/server.js` ile de başlatılabilir)
+
+---
+
+## 📌 Lisans ve kullanım
+
+Bu depo özel veya eğitim amaçlı kullanım için geliştirilebilir. Ticari kullanım için önceden izin alınması gerekir.
+
+## 📬 İletişim ve katkı
+
+Geri bildirim ve teknik konular için GitHub üzerinden issue açılabilir.
+
+**E-posta:** alikacardev@gmail.com
