@@ -114,11 +114,3 @@ npm start
 ```
 
 Varsayılan adres: **http://localhost:3000** (`node js/server.js` ile de başlatılabilir)
-
----
-
-## 📬 İletişim ve katkı
-
-Geri bildirim ve teknik konular için GitHub üzerinden issue açılabilir.
-
-**E-posta:** alikacardev@gmail.com
