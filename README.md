@@ -8,6 +8,26 @@ Kitapları, yazarları ve yayınevlerini tek bir çatı altında toplayan sade v
 
 Kullanıcılar **"Ne Okusam?"** özelliği ile yeni kitaplar keşfedebilir, detaylı arşivde gezinebilir ve üye olarak kendi kişisel **Kitaplık** alanlarını yönetebilirler.
 
+## 📸 Ekran Görüntüleri
+
+<details>
+<summary><b>Uygulama Görsellerini İncelemek İçin Tıklayın</b></summary>
+<br>
+
+| Ana Sayfa | Akış | Keşfet |
+| :---: | :---: | :---: |
+| <img src="Her%20Kitap%20görüntüler/1.png" width="250"> | <img src="Her%20Kitap%20görüntüler/2.png" width="250"> | <img src="Her%20Kitap%20görüntüler/3.png" width="250"> |
+| **Ne Okusam** | **Yazarlar** | **Yayın Evleri** |
+| <img src="Her%20Kitap%20görüntüler/4.png" width="250"> | <img src="Her%20Kitap%20görüntüler/5.png" width="250"> | <img src="Her%20Kitap%20görüntüler/6.png" width="250"> |
+| **Kitaplık** | **Hakkımızda** | **İletişim** |
+| <img src="Her%20Kitap%20görüntüler/7.png" width="250"> | <img src="Her%20Kitap%20görüntüler/8.png" width="250"> | <img src="Her%20Kitap%20görüntüler/9.png" width="250"> |
+| **Giriş Yap** | **Kaydol** | **İletişim - Hakkımızda Düzenleme** |
+| <img src="Her%20Kitap%20görüntüler/login-10.png" width="250"> | <img src="Her%20Kitap%20görüntüler/register-11.png" width="250"> | <img src="Her%20Kitap%20görüntüler/admin-1.png" width="250"> |
+| **Yazar Yönetimi** | **Kitap Yönetimi** | **Yayın Evi Yönetimi** |
+| <img src="Her%20Kitap%20görüntüler/admin-2.png" width="250"> | <img src="Her%20Kitap%20görüntüler/admin-3.png" width="250"> | <img src="Her%20Kitap%20görüntüler/admin-4.png" width="250"> |
+
+</details>
+
 ## Ne sunuyor?
 
 **Keşif ve içerik**
@@ -27,7 +47,8 @@ Kullanıcılar **"Ne Okusam?"** özelliği ile yeni kitaplar keşfedebilir, deta
 
 - Kitap, yazar ve yayınevi için ekleme, güncelleme ve silme
 - Kullanıcı rolleri ve hesap yönetimi
-- **Hakkımızda**, **İletişim** metinleri ve ana sayfa slayt görsellerinin panel üzerinden güncellenmesi
+- Hakkımızda ve iletişim metinlerinini güncelleme 
+- Ana sayfa görsel ögelerinin güncellenmesi
 
 ---
 
@@ -37,9 +58,15 @@ Kullanıcılar **"Ne Okusam?"** özelliği ile yeni kitaplar keşfedebilir, deta
 | :--- | :--- |
 | **Backend** | Node.js, Express |
 | **Veritabanı** | PostgreSQL |
-| **Güvenlik** | bcrypt, çerez tabanlı oturum |
+| **Güvenlik** | bcrypt, cookies |
 | **Diğer** | Multer, dotenv, EJS |
 | **Ön yüz** | Vanilla JavaScript, CSS3, Font Awesome |
+
+### 🗄️ Veritabanı Şeması
+
+<div align="center">
+  <img src="Her%20Kitap%20görüntüler/tables.png" alt="Veritabanı Tabloları" width="500">
+</div>
 
 ---
 
@@ -89,10 +116,6 @@ npm start
 Varsayılan adres: **http://localhost:3000** (`node js/server.js` ile de başlatılabilir)
 
 ---
-
-## 📌 Lisans ve kullanım
-
-Bu depo özel veya eğitim amaçlı kullanım için geliştirilebilir. Ticari kullanım için önceden izin alınması gerekir.
 
 ## 📬 İletişim ve katkı
 
