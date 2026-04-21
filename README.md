@@ -2,13 +2,13 @@
 ![Express.js](https://img.shields.io/badge/Express_JS-000000?style=for-the-badge&logo=express&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 
-# 📚 Her Kitap 
+# Her Kitap 
 
 Kitapları, yazarları ve yayınevlerini tek bir çatı altında toplayan sade ve işlevsel bir okuma platformu.
 
 Kullanıcılar **"Ne Okusam?"** özelliği ile yeni kitaplar keşfedebilir, detaylı arşivde gezinebilir ve üye olarak kendi kişisel **Kitaplık** alanlarını yönetebilirler.
 
-## 📸 Ekran Görüntüleri
+## Ekran Görüntüleri
 
 <details>
 <summary><b>Uygulama Görsellerini İncelemek İçin Tıklayın</b></summary>
@@ -52,7 +52,7 @@ Kullanıcılar **"Ne Okusam?"** özelliği ile yeni kitaplar keşfedebilir, deta
 
 ---
 
-## 🛠️ Teknoloji yığını
+## Teknoloji yığını
 
 | Alan | Teknolojiler |
 | :--- | :--- |
@@ -62,7 +62,7 @@ Kullanıcılar **"Ne Okusam?"** özelliği ile yeni kitaplar keşfedebilir, deta
 | **Diğer** | Multer, dotenv, EJS |
 | **Ön yüz** | Vanilla JavaScript, CSS3, Font Awesome |
 
-### 🗄️ Veritabanı Şeması
+### Veritabanı Şeması
 
 <div align="center">
   <img src="Her%20Kitap%20görüntüler/tables.png" alt="Veritabanı Tabloları" width="500">
@@ -70,7 +70,7 @@ Kullanıcılar **"Ne Okusam?"** özelliği ile yeni kitaplar keşfedebilir, deta
 
 ---
 
-## 🚀 Kurulum
+## Kurulum
 
 **1. Depoyu klonlayın**
 
