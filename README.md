@@ -10,8 +10,6 @@ Kullanıcılar **"Ne Okusam?"** özelliği ile yeni kitaplar keşfedebilir, deta
 
 ## Ekran Görüntüleri
 
-<details>
-<summary><b>Uygulama Görsellerini İncelemek İçin Tıklayın</b></summary>
 <br>
 
 | Ana Sayfa | Akış | Keşfet |
@@ -25,8 +23,6 @@ Kullanıcılar **"Ne Okusam?"** özelliği ile yeni kitaplar keşfedebilir, deta
 | <img src="Her%20Kitap%20görüntüler/login-10.png" width="250"> | <img src="Her%20Kitap%20görüntüler/register-11.png" width="250"> | <img src="Her%20Kitap%20görüntüler/admin-1.png" width="250"> |
 | **Yazar Yönetimi** | **Kitap Yönetimi** | **Yayın Evi Yönetimi** |
 | <img src="Her%20Kitap%20görüntüler/admin-2.png" width="250"> | <img src="Her%20Kitap%20görüntüler/admin-3.png" width="250"> | <img src="Her%20Kitap%20görüntüler/admin-4.png" width="250"> |
-
-</details>
 
 ## Ne sunuyor?
 
